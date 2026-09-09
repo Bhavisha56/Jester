@@ -1898,6 +1898,6 @@ html {
 @media only screen and (max-width: 767px) {
   .formsection__submit {
     width: 100%;
-    max-width: 280px;
+    max-width: 50px;
   }
 }/*# sourceMappingURL=style.css.map */
