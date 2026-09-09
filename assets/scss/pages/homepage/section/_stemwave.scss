@@ -39,7 +39,7 @@
             min-height: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
             gap: 32px;
             max-width: 100%;
         }
@@ -64,12 +64,13 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         grid-column: 1;
         grid-row: 1;
 
         @include large {
             flex: 1 1 auto;
+            width: 100%;
             max-width: 100%;
             min-height: 0;
             padding: 64px 48px 80px;
@@ -101,7 +102,9 @@
         margin: 0 0 104px;
         text-decoration: none;
         line-height: 0;
-        flex-shrink: 0;
+        flex-shrink: 1;
+        min-width: 0;
+        max-width: 100%;
 
         img {
             width: 100%;
@@ -138,12 +141,16 @@
         color: #ffffff;
         margin: 0;
         width: 100%;
-        max-width: 750px;
-        white-space: nowrap;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
 
-        @include large {
-            white-space: normal;
-            font-size: 48px;
+        @include extra {
+            max-width: 750px;
+            white-space: nowrap;
         }
 
         @include lessTab {
@@ -152,15 +159,13 @@
 
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             margin-top: 67px;
-            max-width: 100%;
-            white-space: normal;
         }
     }
 
     // Figma: 750 × 87 — exactly 2 lines
     &__desc {
         font-family: "circular";
-        font-weight: 400;
+        font-weight: 450;
         font-size: 32px;
         line-height: 1.35;
         color: #ffffff;
@@ -203,10 +208,13 @@
         color: #EA7764;
         margin: 67px 0 0;
         max-width: 750px;
+        box-sizing: border-box;
 
         @include large {
             font-size: 40px;
             margin-top: 40px;
+            max-width: 100%;
+            overflow-wrap: break-word;
         }
 
         @include lessTab {
