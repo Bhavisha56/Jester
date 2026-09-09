@@ -1,0 +1,311 @@
+.testimonials {
+    $navy: #28354F;
+    $muted: #646A69;
+    $card-bg: #ffffff;
+    $section-bg: #ffffff;
+    $radius: 24px; // Figma radius/l
+    $card-w: 1089px;
+    $card-h: 438px;
+    $behind-w: 1153px;
+    $behind-h: 350px;
+    $elevation-small:
+        0 0 0 1px rgba(18, 105, 63, 0.08),
+        0 1px 2px 0 rgba(87, 92, 86, 0.16),
+        0 2px 4px 0 rgba(87, 92, 86, 0.08);
+
+    width: 100%;
+    background-color: $section-bg;
+    box-sizing: border-box;
+    padding: 100px 120px 120px;
+    overflow: visible;
+
+    @include large {
+        padding: 80px 60px;
+    }
+
+    @include lessTab {
+        padding: 64px 24px 80px;
+    }
+
+    &__inner {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    &__title {
+        margin: 0 0 16px;
+        font-family: "quincycfBold";
+        font-weight: 400;
+        font-size: 62px;
+        line-height: 1.15;
+        color: #1D1F1E;
+
+        @include large {
+            font-size: 62px;
+        }
+
+        @include lessTab {
+            font-size: 32px;
+        }
+    }
+
+    &__subtitle {
+        margin: 24px auto 56px;
+        max-width: 720px;
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.45;
+        color: #646A69;
+
+        @include lessTab {
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__slider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+        overflow: visible;
+
+        @include lessTab {
+            gap: 12px;
+        }
+    }
+
+    &__arrow {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        z-index: 3;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        img {
+            display: block;
+            width: 44px;
+            height: 44px;
+        }
+
+        &:hover {
+            opacity: 0.75;
+            transform: scale(1.05);
+        }
+
+        @include mobile {
+            width: 36px;
+            height: 36px;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    }
+
+    &__stack {
+        position: relative;
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: $card-w;
+        min-height: $card-h;
+        margin: 0 auto;
+        z-index: 1;
+
+        @include large {
+            max-width: 100%;
+        }
+    }
+
+    // Figma behind box: #F5FAF9 @ 60%, peeks 32px L/R, top 30, radius/l
+    &__behind {
+        position: absolute;
+        top: 30px;
+        left: -32px;
+        right: -32px;
+        width: auto;
+        height: $behind-h;
+        background-color: rgba(245, 250, 249, 0.6);
+        border: 1px solid #EEF1F0;
+        border-radius: $radius;
+        box-shadow: none;
+        z-index: 0;
+        pointer-events: none;
+        box-sizing: border-box;
+
+        @include large {
+            left: -24px;
+            right: -24px;
+            height: auto;
+            top: 20px;
+            bottom: 20px;
+        }
+
+        @include lessTab {
+            display: none;
+        }
+    }
+
+    // Static shell — border stays visible during slide; corner lift shadows only
+    &__frame {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        background-color: $card-bg;
+        border: 1px solid #C6D3CD;
+        border-radius: $radius;
+        overflow: visible;
+        box-shadow: none;
+
+        &::before {
+            content: none;
+        }
+
+        // Full bottom edge strip — left corner to right corner (no oval, so no center-only look)
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            height: 22px;
+            background: rgba(29, 31, 30, 0.28);
+            filter: blur(12px);
+            border-radius: 0;
+            z-index: -1;
+            pointer-events: none;
+            transform: none;
+        }
+
+        @include lessTab {
+            border-radius: 16px;
+        }
+    }
+
+    &__viewport {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        overflow: hidden;
+        border-radius: inherit;
+    }
+
+    &__track {
+        display: flex;
+        width: 100%;
+        transition: transform 0.45s ease;
+        will-change: transform;
+    }
+
+    // Content only — border/shadow live on __frame
+    &__card {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: $card-w;
+        min-height: $card-h;
+        margin: 0 auto;
+        padding: 48px 64px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        background-color: $card-bg;
+        border: 0;
+        box-shadow: none;
+        text-align: center;
+
+        @include tab {
+            min-height: 0;
+            padding: 40px 40px;
+            gap: 20px;
+        }
+
+        @include lessTab {
+            padding: 32px 24px;
+            gap: 16px;
+        }
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        flex-shrink: 0;
+
+        img {
+            display: block;
+            width: 24px;
+            height: 24px;
+
+            @include lessTab {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__quote {
+        margin: 0;
+        max-width: 100%;
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.55;
+        color: #1D1F1E;
+
+        @include lessTab {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+    }
+
+    &__author {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    &__name {
+        margin: 0;
+        font-family: "circularProBold";
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.3;
+        color: #1D1F1E;
+
+        @include lessTab {
+            font-size: 16px;
+        }
+    }
+
+    &__meta {
+        margin: 0;
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.3;
+        color: #646A69;
+
+        @include lessTab {
+            font-size: 14px;
+        }
+    }
+}

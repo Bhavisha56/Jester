@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "regular";
+    src: url('../fonts/Fontspring-DEMO-quincycf-regular.woff2') format('woff2'),
+         url('../fonts/Fontspring-DEMO-quincycf-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "quincycfBold";
+    src: url('/assets/fonts/Quincy-CF-Bold.ttf');
+}
+
+@font-face {
+    font-family: "quincycfRegular";
+    src: url('/assets/fonts/Quincy-CF-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: circular;
+    src: url('/assets/fonts/CircularStd-Book.ttf') format('truetype');
+   font-weight: 400;
+}
+
+@font-face {
+    font-family: circularProBold;
+    src: url('/assets/fonts/CircularProBold-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: circularProLight;
+    src: url('/assets/fonts/CircularProLight-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "medium";
+    src: url('../fonts/Fontspring-DEMO-quincycf-medium.woff2') format('woff2'),
+         url('../fonts/Fontspring-DEMO-quincycf-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "bold";
+    src: url('../fonts/Fontspring-DEMO-quincycf-bold.woff2') format('woff2'),
+         url('../fonts/Fontspring-DEMO-quincycf-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "black";
+    src: url('../fonts/Fontspring-DEMO-quincycf-black.woff2') format('woff2'),
+         url('../fonts/Fontspring-DEMO-quincycf-black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "light";
+    src: url('../fonts/Fontspring-DEMO-quincycf-light.woff2') format('woff2'),
+         url('../fonts/Fontspring-DEMO-quincycf-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}

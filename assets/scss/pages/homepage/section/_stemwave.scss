@@ -1,0 +1,345 @@
+.stemwave {
+    width: 100%;
+    background-color: #D9E6E8;
+    // Figma 1920: left 59, right 77
+    padding: 77px 77px 77px 59px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    @include large {
+        padding: 80px 40px;
+    }
+
+    @include tab {
+        padding: 64px 32px;
+    }
+
+    @include lessTab {
+        padding: 48px 24px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1200px) {
+        padding: 64px 32px;
+    }
+
+    &__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1116px) minmax(0, 599px);
+        grid-template-rows: 1fr auto;
+        column-gap: 69px;
+        row-gap: 0;
+        align-items: stretch;
+        width: 100%;
+        max-width: 1784px; // 1116 + 69 + 599
+        min-height: 829px;
+        margin: 0 auto;
+        box-sizing: border-box;
+
+        @include large {
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            max-width: 100%;
+        }
+
+        @include tab {
+            gap: 32px;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    // Figma: 1116 × 829 — content column 750, right empty 302
+    &__card {
+        flex: 1.865 1 0; // 1116 / 599
+        min-width: 0;
+        max-width: 1116px;
+        min-height: 0;
+        background-color: #28354F;
+        // left 64px; right space comes from content max-width 750
+        // (at 1116 wide: 1116 - 64 - 750 = 302)
+        padding: 100px 64px 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        grid-column: 1;
+        grid-row: 1;
+
+        @include large {
+            flex: 1 1 auto;
+            max-width: 100%;
+            min-height: 0;
+            padding: 64px 48px 80px;
+            border-radius: 20px;
+        }
+
+        @include tab {
+            padding: 48px 40px 80px;
+            border-radius: 0px;
+        }
+
+        @include lessTab {
+            padding: 40px 24px 60px;
+            border-radius: 16px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 40px 80px;
+        }
+    }
+
+    &__logo {
+        display: block;
+        width: 594px;
+        max-width: 100%;
+        height: 95px;
+        margin: 0 0 104px;
+        text-decoration: none;
+        line-height: 0;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: left center;
+            display: block;
+        }
+
+        @include large {
+            width: 420px;
+            height: auto;
+            aspect-ratio: 594 / 95;
+            margin-bottom: 48px;
+        }
+
+        @include lessTab {
+            width: 280px;
+            margin-bottom: 28px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            margin-top: 64px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        font-family: "quincycfRegular";
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 1.1;
+        letter-spacing: 0;
+        color: #ffffff;
+        margin: 0;
+        width: 100%;
+        max-width: 750px;
+        white-space: nowrap;
+
+        @include large {
+            white-space: normal;
+            font-size: 48px;
+        }
+
+        @include lessTab {
+            font-size: 32px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            margin-top: 67px;
+            max-width: 100%;
+            white-space: normal;
+        }
+    }
+
+    // Figma: 750 × 87 — exactly 2 lines
+    &__desc {
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 1.35;
+        color: #ffffff;
+        margin: 35px 0 0;
+        width: 100%;
+        max-width: 750px;
+        box-sizing: border-box;
+
+        span {
+            display: block;
+        }
+
+        @include large {
+            font-size: 32px;
+        }
+
+        @include lessTab {
+            font-size: 18px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            margin-top: 35px;
+            font-size: 24px;
+            line-height: 32px;
+            max-width: 100%;
+            overflow-wrap: break-word;
+
+            span {
+                display: block;
+                white-space: normal;
+            }
+        }
+    }
+
+    &__offer {
+        font-family: "circular";
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 1.3;
+        color: #EA7764;
+        margin: 67px 0 0;
+        max-width: 750px;
+
+        @include large {
+            font-size: 40px;
+            margin-top: 40px;
+        }
+
+        @include lessTab {
+            font-size: 18px;
+            margin-top: 28px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            margin-top: 67px;
+            max-width: 100%;
+        }
+    }
+
+    &__cta {
+        grid-column: 1;
+        grid-row: 2;
+        background-color: #28354F;
+        padding: 34px 64px 102px;
+        box-sizing: border-box;
+
+        @include large {
+            background-color: transparent;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+        width: 442px;
+        max-width: 100%;
+        height: 82px;
+        padding: 29px 20px;
+        background-color: #D9E6E8;
+        border-radius: 200px;
+        font-family: "circular";
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 1;
+        color: #28354F;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.25s ease, transform 0.25s ease;
+        flex-shrink: 0;
+
+        &:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        @include large {
+            margin-top: 117px;
+            width: 344px;
+            height: 100px;
+            font-size: 40px;
+            padding: 29px 20px;
+            background-color: #28354F;
+            color: #ffffff;
+
+            &:hover {
+                background-color: #1f2a40;
+                color: #ffffff;
+            }
+        }
+
+        @include lessTab {
+            width: 100%;
+            max-width: 344px;
+            height: 64px;
+            font-size: 18px;
+        }
+    }
+
+    // Figma: 599 × 829, radius/xl — stretches to same height as card
+    &__media {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 599px;
+        align-self: stretch;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        border-radius: 24px;
+        overflow: hidden;
+        background-color: #ffffff;
+        background-image:
+            linear-gradient(45deg, #ececec 25%, transparent 25%),
+            linear-gradient(-45deg, #ececec 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #ececec 75%),
+            linear-gradient(-45deg, transparent 75%, #ececec 75%);
+        background-size: 20px 20px;
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+        box-sizing: border-box;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @include large {
+            flex: 1 1 auto;
+            width: 100%;
+            max-width: 420px;
+            min-height: 520px;
+            margin: 0 auto;
+            border-radius: 0px;
+        }
+
+        @include tab {
+            max-width: 100%;
+            min-height: 0;
+            aspect-ratio: 599 / 829;
+            border-radius: 16px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            flex: none;
+            width: 599px;
+            max-width: 100%;
+            height: auto;
+            min-height: 0;
+            aspect-ratio: 599 / 829;
+            margin: 0 auto;
+            border-radius: 16px;
+        }
+    }
+}

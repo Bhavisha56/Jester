@@ -1,0 +1,274 @@
+.homebanner {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    // Content drives height → padding-bottom 180px is real space under btn.
+    // Image covers the tall frame; crop is pinned LEFT (under navy overlay)
+    // so the treatment area on the RIGHT stays fully visible.
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right center;
+        display: block;
+        z-index: 0;
+
+        @include lessTab {
+            object-position: 80% 30%;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+            90deg,
+            #28354F 0%,
+            #28354F 28%,
+            rgba(40, 53, 79, 0.9) 40%,
+            rgba(40, 53, 79, 0.45) 55%,
+            rgba(40, 53, 79, 0) 70%
+        );
+
+        @include lessTab {
+            background: linear-gradient(
+                180deg,
+                rgba(40, 53, 79, 0.4) 0%,
+                rgba(40, 53, 79, 0.75) 45%,
+                #28354F 100%
+            );
+        }
+    }
+
+    // Figma: left 112, top 272, bottom 180 (btn → banner bottom)
+    &__content {
+        position: relative;
+        z-index: 2;
+        width: 800px;
+        max-width: 100%;
+        padding: 272px 0 180px 112px;
+        box-sizing: border-box;
+
+        @include large {
+            padding: 160px 40px 120px 60px;
+            width: 100%;
+        }
+
+        @include tab {
+            padding: 120px 32px 80px;
+            width: 100%;
+        }
+
+        @include lessTab {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            padding: 80px 24px 60px;
+        }
+    }
+
+    &__title {
+        font-family: "quincycfRegular";
+        font-weight: 400;
+        font-size: 90px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #ffffff;
+        margin: 0 0 28px;
+    }
+
+    &__desc {
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 1.15625;
+        letter-spacing: 0;
+        color: #ffffff;
+        margin: 0 0 clamp(20px, 108px, 40px);
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width:  321px;
+        height: clamp(48px, 3.75vw, 72px);
+        padding: 16px 24px;
+        background-color: #EA7764;
+        border-radius: 200px;
+        font-family: "circular";
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 1;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+            background-color: #d96552;
+            transform: translateY(-2px);
+        }
+
+        @include lessTab {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+
+    &__sticker {
+        position: absolute;
+        top: 32px;
+        right: 80px;
+        z-index: 3;
+        width: 360px;
+        max-width: calc(100% - 40px);
+        display: block;
+        transition: transform 0.3s ease;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
+        }
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        @include large {
+            width: 280px;
+            top: 24px;
+            right: 40px;
+        }
+
+        @include tab {
+            width: 200px;
+            top: 20px;
+            right: 24px;
+        }
+
+        @include lessTab {
+            width: 130px;
+            top: 16px;
+            right: 16px;
+        }
+    }
+}
+
+.homebanner-features {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 80px 121px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    @include large {
+        padding: 60px 60px;
+    }
+
+    @include tab {
+        padding: 48px 32px;
+    }
+
+    @include lessTab {
+        padding: 40px 24px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 173px;
+        width: 100%;
+        box-sizing: border-box;
+
+        @include large {
+            gap: 48px;
+        }
+
+        @include tab {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px 40px;
+            justify-content: initial;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    &__item {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+        box-sizing: border-box;
+    }
+
+    &__icon {
+        width: 100px;
+        height: 100px;
+        display: block;
+        object-fit: contain;
+        margin: 0 auto;
+        flex-shrink: 0;
+
+        @include large {
+            width: 80px;
+            height: 80px;
+        }
+
+        @include lessTab {
+            width: 72px;
+            height: 72px;
+        }
+    }
+
+    &__text {
+        font-family: "circular";
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+        color: #28354F;
+        margin: 0;
+        text-align: center;
+
+        span {
+            display: block;
+            white-space: nowrap;
+        }
+
+        @include large {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        @include tab {
+            font-size: 20px;
+            line-height: 26px;
+
+            span {
+                white-space: normal;
+            }
+        }
+
+        @include lessTab {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+}

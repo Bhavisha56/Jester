@@ -1,0 +1,386 @@
+.stateart {
+    // Figma: box 697px; circle 747 × 796 @ radius 500
+    // One circular mask = photo + thin coral slice (both clipped to the same circle)
+    $navy: #28354F;
+    $pale: #D9E6E8;
+    $coral: #EA7764;
+    $box: 697px;
+    $circle-w: 747px;
+    $circle-h: 796px;
+    $circle-top: -49.5px; // (796 - 697) / 2 — equal top/bottom clip
+    $circle-right: 145px;
+    $coral-w: 30%; // thin orange crescent
+
+    position: relative;
+    width: 100%;
+    background-color: $pale;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &__inner {
+        position: relative;
+        width: 100%;
+        max-width: 1920px;
+        height: $box;
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: $navy;
+
+        // Pale covers right half of the circle area so top/bottom
+        // wedges beside the coral are pale — not navy
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(#{$circle-right} + #{$circle-w} / 2);
+            height: 100%;
+            background-color: $pale;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @include large {
+            height: 560px;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        @include lessTab {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            padding: 40px 24px 48px;
+            overflow: visible;
+            border-radius: 0;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__panel {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        padding: 182px 420px 181px 112px;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: 1600px) {
+            padding: 80px 280px 80px 80px;
+        }
+
+        @include large {
+            height: 100%;
+            padding: 64px 46% 64px 48px;
+        }
+
+        @include lessTab {
+            height: auto;
+            padding: 0;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__title {
+        font-family: "quincycfRegular";
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 1.12;
+        letter-spacing: 0;
+        color: #ffffff;
+        margin: 0 0 24px;
+        max-width: 592px;
+
+        span {
+            white-space: nowrap;
+        }
+
+        // Desktop: "State of the Art Care" / "with a Personal Touch."
+        span:nth-child(1)::after {
+            content: "\00a0";
+        }
+
+        span:nth-child(2)::after {
+            content: "";
+            display: block;
+        }
+
+        span:nth-child(3)::after {
+            content: "\00a0";
+        }
+
+        @include large {
+            max-width: none;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            font-size: 64px;
+            line-height: 1.12;
+            margin-bottom: 24px;
+
+            // Tablet Figma: "State of the Art" / "Care with a" / "Personal Touch."
+            span:nth-child(1),
+            span:nth-child(4) {
+                display: block;
+            }
+
+            span:nth-child(2),
+            span:nth-child(3) {
+                display: inline;
+            }
+
+            span:nth-child(2)::after {
+                content: "\00a0";
+                display: inline;
+            }
+
+            span:nth-child(3)::after {
+                content: "";
+                display: block;
+            }
+        }
+
+        @include lessTab {
+            font-size: 32px;
+            line-height: 40px;
+            margin-bottom: 16px;
+            text-align: center;
+            max-width: 100%;
+
+            span {
+                white-space: normal;
+            }
+
+            span:nth-child(1),
+            span:nth-child(4) {
+                display: block;
+            }
+
+            span:nth-child(2),
+            span:nth-child(3) {
+                display: inline;
+            }
+
+            span:nth-child(2)::after {
+                content: "\00a0";
+                display: inline;
+            }
+
+            span:nth-child(3)::after {
+                content: "";
+                display: block;
+            }
+        }
+    }
+
+    &__desc {
+        font-family: "circular";
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.35;
+        color: #ffffff;
+        margin: 0 0 32px;
+        max-width: 592px;
+
+        @include large {
+            max-width: none;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        @include lessTab {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+            max-width: 100%;
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 280px;
+        height: 64px;
+        padding: 16px 28px;
+        background-color: $coral;
+        border-radius: 200px;
+        font-family: "circular";
+        font-weight: 900;
+        font-size: 22px;
+        line-height: 1;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+            background-color: #d96552;
+            transform: translateY(-2px);
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            min-width: 280px;
+            height: 64px;
+            font-size: 20px;
+        }
+
+        @include lessTab {
+            width: 100%;
+            max-width: 280px;
+            min-width: 0;
+            height: 48px;
+            font-size: 16px;
+            padding: 12px 20px;
+            margin: 0 auto;
+        }
+    }
+
+    // Perfect circle frame — Figma 747 × 796
+    &__visual {
+        position: absolute;
+        top: $circle-top;
+        right: $circle-right;
+        width: $circle-w;
+        height: $circle-h;
+        z-index: 2;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @include large {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 38%;
+            height: 100%;
+            border-radius: 0;
+            overflow: visible;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        @include lessTab {
+            position: relative;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            display: block;
+            width: min(280px, 80%);
+            height: auto;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+
+    // Single circular mask — photo + coral both clip to this round
+    &__shape {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: $coral;
+
+        @include large {
+            flex: 1 1 auto;
+            min-width: 0;
+            height: 100%;
+            border-radius: 999px 0 0 999px;
+            background-color: $navy;
+        }
+
+        @include lessTab {
+            flex: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $navy;
+        }
+    }
+
+    &__photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
+        display: block;
+        z-index: 1;
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            object-position: 18%;
+        }
+
+        @include lessTab {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // Thin coral strip — no own radius; parent circle makes the round edge
+    &__accent {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $coral-w;
+        height: 100%;
+        background-color: $coral;
+        z-index: 2;
+        pointer-events: none;
+
+        @include large {
+            position: relative;
+            top: auto;
+            right: auto;
+            width: 56px;
+            flex: 0 0 56px;
+            height: 100%;
+            border-radius: 0;
+        }
+
+        @include lessTab {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1201px) {
+    .stateart__inner {
+        height: 580px;
+
+        &::after {
+            width: calc(48px + 560px / 2);
+        }
+    }
+
+    .stateart__visual {
+        top: -8.5px;
+        right: 48px;
+        width: 560px;
+        height: 597px;
+    }
+}

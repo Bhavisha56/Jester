@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="599" height="829" viewBox="0 0 599 829" role="img" aria-label="Image placeholder">
+  <defs>
+    <pattern id="checker" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#ffffff"/>
+      <rect width="10" height="10" fill="#ececec"/>
+      <rect x="10" y="10" width="10" height="10" fill="#ececec"/>
+    </pattern>
+  </defs>
+  <rect width="599" height="829" fill="url(#checker)"/>
+</svg>

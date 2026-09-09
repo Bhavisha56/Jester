@@ -1,0 +1,252 @@
+.whyjester {
+    $coral: #EA7764;
+    $navy: #28354F;
+    $bg: #F2F2F2;
+
+    width: 100%;
+    background-color: $bg;
+    box-sizing: border-box;
+    // Figma: 1920 × 1130 — vertical rhythm around content + 2×2 grid
+    padding: 0px 168px 165px 112px;
+    overflow-x: hidden;
+
+    @media only screen and (max-width: 1919px) and (min-width: 1201px) {
+        padding-left: calc(112 / 1920 * 100vw);
+        padding-right: calc(168 / 1920 * 100vw);
+        padding-bottom: calc(165 / 1920 * 100vw);
+    }
+
+    @include large {
+        padding: 80px 40px;
+    }
+
+    @include lessTab {
+        padding: 64px 24px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        // Figma: ~281px between text column and image grid
+        gap: 281px;
+        width: 100%;
+        max-width: 1640px; // 1920 - 112 - 168
+        margin: 0 auto;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: 1919px) and (min-width: 1201px) {
+            gap: calc(281 / 1920 * 100vw);
+        }
+
+        @include large {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 48px;
+        }
+    }
+
+    &__content {
+        // 1640 - 281 (gap) - 752 (grid) = 607
+        flex: 0 1 607px;
+        width: 607px;
+        max-width: 607px;
+        padding-top: 164px;
+        min-width: 0;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: 1919px) and (min-width: 1201px) {
+            width: calc(607 / 1920 * 100vw);
+            max-width: calc(607 / 1920 * 100vw);
+            flex-basis: calc(607 / 1920 * 100vw);
+        }
+
+        @include large {
+            flex: none;
+            width: 100%;
+            max-width: 100%;
+            padding-top: 0;
+        }
+    }
+
+    &__title {
+        font-family: "quincycfBold";
+        font-weight: 700;
+        font-size: 72px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: $coral;
+
+        @include large {
+            font-size: 72px;
+        }
+
+        @include lessTab {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        padding-top: 74px;
+        font-family: "circular";
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 1.25;
+        color: $navy;
+        white-space: nowrap;
+
+        // @media only screen and (max-width: 1919px) and (min-width: 1201px) {
+        //     font-size: calc(32 / 1920 * 100vw);
+        // }
+
+        @include large {
+            font-size: 28px;
+            margin-bottom: 24px;
+            padding-top: 32px;
+        }
+
+        @include lessTab {
+            font-size: 22px;
+            margin-bottom: 20px;
+            white-space: normal;
+        }
+    }
+
+    &__body {
+        margin: 0 0 40px;
+
+        p {
+            margin-top: 10px;
+            font-family: "circular";
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.55;
+            color: $navy;
+
+            @include lessTab {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @include lessTab {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__tagline {
+        font-family: "circularProBold";
+        font-weight: 700;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 280px;
+        height: 64px;
+        padding: 16px 24px;
+        background-color: $coral;
+        border-radius: 200px;
+        font-family: "circular";
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 1;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+            background-color: #d96552;
+            transform: translateY(-2px);
+        }
+
+        @include lessTab {
+            width: 100%;
+            max-width: 320px;
+            min-width: 0;
+            height: 56px;
+            font-size: 18px;
+        }
+    }
+
+    // Figma: 2×2 — each image 363 × 395, radius 16
+    &__grid {
+        padding-top: 114px;
+        flex: 0 0 752px;
+        display: grid;
+        grid-template-columns: repeat(2, 363px);
+        gap: 30px 26px;
+        width: 752px; // 363 + 26 + 363
+        max-width: 100%;
+
+        @media only screen and (max-width: 1919px) and (min-width: 1201px) {
+            flex-basis: calc(752 / 1920 * 100vw);
+            width: calc(752 / 1920 * 100vw);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: calc(30 / 1920 * 100vw) calc(26 / 1920 * 100vw);
+        }
+
+        @include large {
+            flex: none;
+            width: 100%;
+            padding-top: 0;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px 24px;
+        }
+
+        @include lessTab {
+            gap: 24px 16px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+
+    &__card {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+
+        img {
+            display: block;
+            width: 363px;
+            max-width: 100%;
+            height: 395px;
+            object-fit: cover;
+            border-radius: 16px;
+
+            @include large {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 363 / 395;
+            }
+        }
+
+        figcaption {
+            margin: 0;
+            font-family: "circular";
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 1.3;
+            color: $navy;
+            text-align: center;
+
+            @include lessTab {
+                font-size: 15px;
+            }
+        }
+    }
+}
