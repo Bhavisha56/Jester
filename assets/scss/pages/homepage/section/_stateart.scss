@@ -50,17 +50,12 @@
         }
 
         @include lessTab {
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-            padding: 40px 24px 48px;
-            overflow: visible;
-            border-radius: 0;
+            height: 380px;
+            overflow: hidden;
+            padding: 0;
             margin: 0;
             width: 100%;
-            text-align: center;
+            text-align: left;
 
             &::after {
                 display: none;
@@ -89,10 +84,10 @@
         }
 
         @include lessTab {
-            height: auto;
-            padding: 0;
-            align-items: center;
-            text-align: center;
+            height: 100%;
+            padding: 24px 44% 24px 16px;
+            align-items: flex-start;
+            text-align: left;
         }
     }
 
@@ -156,11 +151,14 @@
         }
 
         @include lessTab {
-            font-size: 32px;
-            line-height: 40px;
-            margin-bottom: 16px;
-            text-align: center;
+            font-size: 24px;
+            line-height: 30px;
+            margin-bottom: 12px;
+            text-align: left;
             max-width: 100%;
+            width: 100%;
+            min-width: 0;
+            overflow-wrap: break-word;
 
             span {
                 white-space: normal;
@@ -209,10 +207,10 @@
         }
 
         @include lessTab {
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 16px;
+            text-align: left;
             max-width: 100%;
         }
     }
@@ -247,13 +245,13 @@
         }
 
         @include lessTab {
-            width: 100%;
-            max-width: 280px;
+            width: auto;
+            max-width: 100%;
             min-width: 0;
-            height: 48px;
-            font-size: 16px;
-            padding: 12px 20px;
-            margin: 0 auto;
+            height: 40px;
+            font-size: 14px;
+            padding: 8px 16px;
+            margin: 0;
         }
     }
 
@@ -282,17 +280,18 @@
         }
 
         @include lessTab {
-            position: relative;
-            top: auto;
-            right: auto;
-            bottom: auto;
-            display: block;
-            width: min(280px, 80%);
-            height: auto;
-            aspect-ratio: 1 / 1;
-            margin: 0 auto;
-            border-radius: 50%;
-            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            width: 42%;
+            height: 100%;
+            margin: 0;
+            border-radius: 0;
+            overflow: visible;
         }
     }
 
@@ -308,15 +307,18 @@
             flex: 1 1 auto;
             min-width: 0;
             height: 100%;
-            border-radius: 999px 0 0 999px;
+            border-radius: 0;
+            clip-path: ellipse(100% 50% at 100% 50%);
             background-color: $navy;
         }
 
         @include lessTab {
-            flex: none;
-            width: 100%;
+            flex: 1 1 auto;
+            min-width: 0;
+            width: auto;
             height: 100%;
-            border-radius: 50%;
+            border-radius: 0;
+            clip-path: ellipse(100% 50% at 100% 50%);
             background-color: $navy;
         }
     }
@@ -337,7 +339,7 @@
 
         @include lessTab {
             object-fit: cover;
-            object-position: center;
+            object-position: 18%;
         }
     }
 
@@ -363,7 +365,14 @@
         }
 
         @include lessTab {
-            display: none;
+            display: block;
+            position: relative;
+            top: auto;
+            right: auto;
+            width: 24px;
+            flex: 0 0 24px;
+            height: 100%;
+            border-radius: 0;
         }
     }
 }
