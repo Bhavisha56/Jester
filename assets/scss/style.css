@@ -83,17 +83,14 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: right center;
-     object-position: right center;
+  object-fit: cover;
+  object-position: right center;
   display: block;
   z-index: 0;
 }
 @media only screen and (max-width: 767px) {
   .homebanner__bg {
-    -o-object-position: 80% 30%;
-       object-position: 80% 30%;
+    object-position: 80% 30%;
   }
 }
 .homebanner__overlay {
@@ -320,8 +317,7 @@ html {
   width: 100px;
   height: 100px;
   display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: 0 auto;
   flex-shrink: 0;
 }
@@ -403,8 +399,7 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 1116px) minmax(0, 599px);
   grid-template-rows: 1fr auto;
-  -moz-column-gap: 69px;
-       column-gap: 69px;
+  column-gap: 69px;
   row-gap: 0;
   align-items: stretch;
   width: 100%;
@@ -488,10 +483,8 @@ html {
 .stemwave__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: left center;
-     object-position: left center;
+  object-fit: contain;
+  object-position: left center;
   display: block;
 }
 @media only screen and (max-width: 1200px) {
@@ -671,6 +664,7 @@ html {
 }
 @media only screen and (max-width: 767px) {
   .stemwave__btn {
+    margin-top: 16px;
     width: 100%;
     max-width: 344px;
     height: 64px;
@@ -698,8 +692,7 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 @media only screen and (max-width: 1200px) {
@@ -1036,25 +1029,20 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: left;
-     object-position: left;
+  object-fit: cover;
+  object-position: left;
   display: block;
   z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .stateart__photo {
-    -o-object-position: 18%;
-       object-position: 18%;
+    object-position: 18%;
   }
 }
 @media only screen and (max-width: 767px) {
   .stateart__photo {
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
+    object-fit: cover;
+    object-position: center;
   }
 }
 .stateart__accent {
@@ -1320,8 +1308,7 @@ html {
   width: 363px;
   max-width: 100%;
   height: 395px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 16px;
 }
 @media only screen and (max-width: 1200px) {
@@ -1833,13 +1820,7 @@ html {
   line-height: 1.4;
   color: #28354F;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.formsection__input::-moz-placeholder, .formsection__textarea::-moz-placeholder {
-  color: #9AA3A1;
-  opacity: 1;
+  appearance: none;
 }
 .formsection__input::placeholder, .formsection__textarea::placeholder {
   color: #9AA3A1;
@@ -1900,4 +1881,6 @@ html {
     width: 100%;
     max-width: 50px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
