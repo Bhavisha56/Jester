@@ -145,6 +145,24 @@ html {
   color: #ffffff;
   margin: 0 0 28px;
 }
+@media only screen and (max-width: 767px) {
+  .homebanner__title {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+  .homebanner__title span {
+    display: block;
+    white-space: normal;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .homebanner__title {
+    padding-top: 27px;
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
 .homebanner__desc {
   font-family: "circular";
   font-weight: 400;
@@ -153,6 +171,19 @@ html {
   letter-spacing: 0;
   color: #ffffff;
   margin: 0 0 40px;
+}
+@media only screen and (max-width: 767px) {
+  .homebanner__desc {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 20px;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .homebanner__desc {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 .homebanner__btn {
   display: inline-flex;
@@ -179,7 +210,10 @@ html {
 @media only screen and (max-width: 767px) {
   .homebanner__btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 240px;
+    height: 48px;
+    font-size: 16px;
+    padding: 12px 16px;
   }
 }
 .homebanner__sticker {

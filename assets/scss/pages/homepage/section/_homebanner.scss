@@ -82,6 +82,23 @@
         letter-spacing: 0;
         color: #ffffff;
         margin: 0 0 28px;
+
+        @include lessTab {
+            font-size: 32px;
+            line-height: 40px;
+            margin: 0 0 16px;
+
+            span {
+                display: block;
+                white-space: normal;
+            }
+        }
+
+        @include mobile {
+            padding-top: 27px;
+            font-size: 28px;
+            line-height: 36px;
+        }
     }
 
     &__desc {
@@ -92,6 +109,17 @@
         letter-spacing: 0;
         color: #ffffff;
         margin: 0 0 clamp(20px, 108px, 40px);
+
+        @include lessTab {
+            font-size: 16px;
+            line-height: 24px;
+            margin: 0 0 20px;
+        }
+
+        @include mobile {
+            font-size: 14px;
+            line-height: 22px;
+        }
     }
 
     &__btn {
@@ -119,7 +147,10 @@
 
         @include lessTab {
             width: 100%;
-            max-width: 280px;
+            max-width: 240px;
+            height: 48px;
+            font-size: 16px;
+            padding: 12px 16px;
         }
     }
 
