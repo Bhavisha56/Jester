@@ -31,7 +31,7 @@
         background: linear-gradient(
             90deg,
             #28354F 0%,
-            #28354F 28%,
+            #28354F 0%,
             rgba(40, 53, 79, 0.9) 40%,
             rgba(40, 53, 79, 0.45) 55%,
             rgba(40, 53, 79, 0) 70%
@@ -157,7 +157,7 @@
     &__sticker {
         position: absolute;
         top: 32px;
-        right: 80px;
+        right: 350px;
         z-index: 3;
         width: 360px;
         max-width: calc(100% - 40px);
@@ -165,7 +165,7 @@
         transition: transform 0.3s ease;
 
         img {
-            width: 100%;
+            width: 513px;
             height: auto;
             display: block;
             filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
@@ -188,9 +188,59 @@
         }
 
         @include lessTab {
-            width: 130px;
-            top: 16px;
-            right: 16px;
+            width: 96px;
+            top: 12px;
+            right: 12px;
+            max-width: none;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @include mobile {
+            width: 155px;
+            top: 10px;
+            right: 10px;
+        }
+
+        // Tablet only — keep sticker fully visible, clear of title
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            width: 400px;
+            top: 24px;
+            right: -40px;
+            max-width: none;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    // Tablet only — leave room for sticker; fonts unchanged
+    @media only screen and (min-width: 768px) and (max-width: 1200px) {
+        &__bg {
+            object-position: 65% center;
+        }
+
+        &__content {
+            width: calc(100% - 220px);
+            max-width: 640px;
+            padding: 140px 24px 100px 48px;
+            box-sizing: border-box;
+        }
+
+        &__overlay {
+            background: linear-gradient(
+                90deg,
+                #28354F 0%,
+                #28354F 4%,
+                rgba(40, 53, 79, 0.85) 30%,
+                rgba(40, 53, 79, 0.35) 62%,
+                rgba(40, 53, 79, 0) 78%
+            );
         }
     }
 }

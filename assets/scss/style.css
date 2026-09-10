@@ -83,17 +83,14 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: right center;
-     object-position: right center;
+  object-fit: cover;
+  object-position: right center;
   display: block;
   z-index: 0;
 }
 @media only screen and (max-width: 767px) {
   .homebanner__bg {
-    -o-object-position: 80% 30%;
-       object-position: 80% 30%;
+    object-position: 80% 30%;
   }
 }
 .homebanner__overlay {
@@ -101,7 +98,7 @@ html {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg, #28354F 0%, #28354F 28%, rgba(40, 53, 79, 0.9) 40%, rgba(40, 53, 79, 0.45) 55%, rgba(40, 53, 79, 0) 70%);
+  background: linear-gradient(90deg, #28354F 0%, #28354F 0%, rgba(40, 53, 79, 0.9) 40%, rgba(40, 53, 79, 0.45) 55%, rgba(40, 53, 79, 0) 70%);
 }
 @media only screen and (max-width: 767px) {
   .homebanner__overlay {
@@ -219,7 +216,7 @@ html {
 .homebanner__sticker {
   position: absolute;
   top: 32px;
-  right: 80px;
+  right: 350px;
   z-index: 3;
   width: 360px;
   max-width: calc(100% - 40px);
@@ -227,7 +224,7 @@ html {
   transition: transform 0.3s ease;
 }
 .homebanner__sticker img {
-  width: 100%;
+  width: 513px;
   height: auto;
   display: block;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
@@ -251,9 +248,47 @@ html {
 }
 @media only screen and (max-width: 767px) {
   .homebanner__sticker {
-    width: 130px;
-    top: 16px;
-    right: 16px;
+    width: 96px;
+    top: 12px;
+    right: 12px;
+    max-width: none;
+  }
+  .homebanner__sticker img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .homebanner__sticker {
+    width: 155px;
+    top: 10px;
+    right: 10px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .homebanner__sticker {
+    width: 400px;
+    top: 24px;
+    right: -40px;
+    max-width: none;
+  }
+  .homebanner__sticker img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .homebanner__bg {
+    object-position: 65% center;
+  }
+  .homebanner__content {
+    width: calc(100% - 220px);
+    max-width: 640px;
+    padding: 140px 24px 100px 48px;
+    box-sizing: border-box;
+  }
+  .homebanner__overlay {
+    background: linear-gradient(90deg, #28354F 0%, #28354F 4%, rgba(40, 53, 79, 0.85) 30%, rgba(40, 53, 79, 0.35) 62%, rgba(40, 53, 79, 0) 78%);
   }
 }
 
@@ -320,8 +355,7 @@ html {
   width: 100px;
   height: 100px;
   display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: 0 auto;
   flex-shrink: 0;
 }
@@ -403,8 +437,7 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 1116px) minmax(0, 599px);
   grid-template-rows: 1fr auto;
-  -moz-column-gap: 69px;
-       column-gap: 69px;
+  column-gap: 69px;
   row-gap: 0;
   align-items: stretch;
   width: 100%;
@@ -488,10 +521,8 @@ html {
 .stemwave__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: left center;
-     object-position: left center;
+  object-fit: contain;
+  object-position: left center;
   display: block;
 }
 @media only screen and (max-width: 1200px) {
@@ -699,8 +730,7 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 @media only screen and (max-width: 1200px) {
@@ -1039,25 +1069,20 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: left;
-     object-position: left;
+  object-fit: cover;
+  object-position: left;
   display: block;
   z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .stateart__photo {
-    -o-object-position: 18%;
-       object-position: 18%;
+    object-position: 18%;
   }
 }
 @media only screen and (max-width: 767px) {
   .stateart__photo {
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: 18%;
-       object-position: 18%;
+    object-fit: cover;
+    object-position: 18%;
   }
 }
 .stateart__accent {
@@ -1330,8 +1355,7 @@ html {
   width: 363px;
   max-width: 100%;
   height: 395px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 16px;
 }
 @media only screen and (max-width: 1200px) {
@@ -1843,13 +1867,7 @@ html {
   line-height: 1.4;
   color: #28354F;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.formsection__input::-moz-placeholder, .formsection__textarea::-moz-placeholder {
-  color: #9AA3A1;
-  opacity: 1;
+  appearance: none;
 }
 .formsection__input::placeholder, .formsection__textarea::placeholder {
   color: #9AA3A1;
@@ -1881,6 +1899,79 @@ html {
   resize: none;
   border-radius: 5px;
 }
+.formsection__consent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 461px;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+@media only screen and (max-width: 1200px) {
+  .formsection__consent {
+    max-width: 100%;
+  }
+}
+.formsection__checkbox {
+  flex-shrink: 0;
+  width: 32px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #C9C9C9;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+.formsection__checkbox:checked {
+  background-color: #28354F;
+  border-color: #28354F;
+}
+.formsection__checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  margin: 0;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+.formsection__checkbox:focus-visible {
+  outline: 2px solid #28354F;
+  outline-offset: 2px;
+}
+.formsection__consent-text {
+  margin: 0;
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #28354F;
+  cursor: pointer;
+}
+.formsection__consent-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.formsection__consent-text a:hover {
+  color: #28354F;
+}
+@media only screen and (max-width: 767px) {
+  .formsection__consent-text {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+}
 .formsection__submit {
   display: inline-flex;
   align-items: center;
@@ -1910,4 +2001,6 @@ html {
     width: 100%;
     max-width: 50px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

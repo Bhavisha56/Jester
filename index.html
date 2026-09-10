@@ -9,13 +9,13 @@
 <body>
 
     <section class="homebanner">
-        <img class="homebanner__bg" src="assets/images/Homeimg.webp" alt="">
+        <img class="homebanner__bg" src="assets/images/Homebanner.webp" alt="">
         <div class="homebanner__overlay"></div>
 
         <div class="homebanner__content">
             <h1 class="homebanner__title"><span>Get Back to Better </span><span>with StemWave </span><span>Therapy</span></h1>
-            <p class="homebanner__desc">A personalized approach to pain relief and recovery designed to target the areas that need support the most and help patients move better, feel better, and get back to the life they love.</p>
-            <a href="#" class="homebanner__btn">Try StemWave Today</a>
+            <p class="homebanner__desc">Personalized pain relief and recovery designed to help you move better, feel better, and and get back to the life you love.</p>
+            <a href="#formsection" class="homebanner__btn">Try StemWave Today</a>
         </div>
 
         <a href="#" class="homebanner__sticker" aria-label="Limited time offer — First trial is $49. Book now.">
@@ -59,7 +59,7 @@
                 <img src="assets/images/stemwave-side.svg" alt="StemWave therapy">
             </div>
             <div class="stemwave__cta">
-                <a href="#" class="stemwave__btn">Try StemWave Today</a>
+                <a href="#formsection" class="stemwave__btn">Try StemWave Today</a>
             </div>
         </div>
     </section>
@@ -69,7 +69,7 @@
             <div class="stateart__panel">
                 <h2 class="stateart__title"><span>State of the Art</span><span>Care</span><span>with a</span><span>Personal Touch.</span></h2>
                 <p class="stateart__desc">StemWave Therapy goes beyond symptom relief by addressing the root cause of your pain so you can heal stronger and live better.</p>
-                <a href="#" class="stateart__btn">Try StemWave Today!</a>
+                <a href="#formsection" class="stateart__btn">Try StemWave Today!</a>
             </div>
 
             <div class="stateart__visual">
@@ -91,7 +91,7 @@
                     <p>For 20+ years, our warm, family-focused team has taken the time to understand each patient and create care around what matters most to them.</p>
                     <p class="whyjester__tagline">Your body is unique. Your care should be too.</p>
                 </div>
-                <a href="#" class="whyjester__btn">More About Our Approach</a>
+                <a href="https://jesterchiropractic.com/about-us/" class="whyjester__btn" target="_blank" rel="noopener noreferrer">More About Our Approach</a>
             </div>
 
             <div class="whyjester__grid">
@@ -188,7 +188,7 @@
     </section>
 
 
-    <section class="formsection">
+    <section class="formsection" id="formsection">
         <div class="formsection__inner">
             <div class="formsection__intro">
                 <p class="formsection__eyebrow">TAKE THE FIRST STEP.</p>
@@ -225,6 +225,14 @@
                 <div class="formsection__field">
                     <label class="formsection__label" for="appointment-time">Preferred Appointment Time</label>
                     <textarea class="formsection__textarea" id="appointment-time" name="appointment_time" placeholder="Preferred Appointment Time" rows="4"></textarea>
+                </div>
+
+                <div class="formsection__consent">
+                    <input class="formsection__checkbox" type="checkbox" id="sms-consent" name="sms_consent" value="1">
+                    <label class="formsection__consent-text" for="sms-consent">
+                        I consent to receiving informational SMS messages (scheduling, appointment confirmation, reminders, etc.) from Jester Family Chiropractic to the number provided I consent to receiving promotional SMS messages (special offers, new services) from Jester Family Chiropractic We never sell, share, or otherwise distribute your information.
+                        <a href="#">Privacy policy</a> and <a href="#">Terms of service</a>
+                    </label>
                 </div>
 
                 <button class="formsection__submit" type="submit">Submit</button>
