@@ -296,7 +296,7 @@
         }
     }
 
-    // Desktop: fill right half edge-to-edge (fixes Vercel empty/clipped layout)
+    // Desktop: show FULL video frame (no crop) — Vercel was clipping with cover
     &__media {
         position: relative;
         flex: none;
@@ -326,7 +326,8 @@
             max-height: none;
             display: block;
             border: 0;
-            object-fit: cover;
+            // contain = entire video visible (JESTER / stemwave text not cut)
+            object-fit: contain;
             object-position: center center;
             z-index: 1;
             background: transparent;
@@ -351,22 +352,21 @@
                 height: 100%;
                 max-width: none;
                 max-height: none;
-                object-fit: cover;
+                object-fit: contain;
+                object-position: center center;
             }
         }
 
         @include tab {
             max-width: 100%;
             min-height: 0;
-            aspect-ratio: 599 / 829;
+            aspect-ratio: auto;
             border-radius: 16px;
         }
 
-        // Tablet only: full-bleed video, no radius, no top/bottom clip
+        // Tablet only: full-bleed width, natural height, no clip
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             flex: none;
             width: 100%;
             max-width: 100%;
@@ -375,7 +375,7 @@
             aspect-ratio: auto;
             margin: 0;
             border-radius: 0;
-            background-color: #D9E6E8;
+            background-color: #000000;
 
             .stemwave__video,
             .stemwave__video--main {

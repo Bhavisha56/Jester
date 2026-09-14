@@ -741,7 +741,7 @@ html {
   max-height: none;
   display: block;
   border: 0;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   z-index: 1;
   background: transparent;
@@ -766,22 +766,21 @@ html {
     height: 100%;
     max-width: none;
     max-height: none;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center center;
   }
 }
 @media only screen and (max-width: 991px) {
   .stemwave__media {
     max-width: 100%;
     min-height: 0;
-    aspect-ratio: 599/829;
+    aspect-ratio: auto;
     border-radius: 16px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .stemwave__media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     flex: none;
     width: 100%;
     max-width: 100%;
@@ -790,7 +789,7 @@ html {
     aspect-ratio: auto;
     margin: 0;
     border-radius: 0;
-    background-color: #D9E6E8;
+    background-color: #000000;
   }
   .stemwave__media .stemwave__video,
   .stemwave__media .stemwave__video--main {
