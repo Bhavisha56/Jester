@@ -26,13 +26,13 @@
         display: grid;
         // Narrower left navy box so video gets more width
         grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
-        grid-template-rows: 1fr auto;
+        // Height comes from the video's 9:16 frame — not a forced tall row
+        grid-template-rows: auto auto;
         column-gap: 0;
         row-gap: 0;
         align-items: stretch;
         width: 100%;
         max-width: 100%;
-        // Don't force extra height — that created top/bottom video gaps
         min-height: 0;
         margin: 0 auto;
         box-sizing: border-box;
@@ -53,15 +53,16 @@
         }
     }
 
-    // Desktop left box: ~35% width — keep padding modest so column isn't taller than video
+    // Left column stretches to match video height (no extra forced height)
     &__card {
         flex: none;
         min-width: 0;
         width: 100%;
         max-width: none;
         min-height: 0;
+        height: 100%;
         background-color: #28354F;
-        padding: 80px 48px 0;
+        padding: 48px 40px 0;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -238,7 +239,7 @@
         grid-column: 1;
         grid-row: 2;
         background-color: #28354F;
-        padding: 40px 48px 64px;
+        padding: 24px 40px 48px;
         box-sizing: border-box;
 
         @include large {
@@ -255,15 +256,16 @@
         margin-top: 0;
         align-items: center;
         justify-content: center;
-        width: 442px;
+        width: 100%;
         max-width: 100%;
-        height: 82px;
-        padding: 29px 20px;
+        height: auto;
+        min-height: 72px;
+        padding: 20px 16px;
         background-color: #D9E6E8;
         border-radius: 200px;
         font-family: "circular";
         font-weight: 900;
-        font-size: 40px;
+        font-size: 28px;
         line-height: 1;
         color: #28354F;
         text-decoration: none;
@@ -299,16 +301,18 @@
         }
     }
 
-    // Desktop: video fills right column edge-to-edge (no top/bottom gaps)
+    // Desktop: box = exact video ratio (1080x1920) so full frame shows — no top/bottom crop
     &__media {
         position: relative;
         flex: none;
         min-width: 0;
         width: 100%;
-        max-width: none;
-        height: 100%;
+        max-width: 100%;
+        height: auto;
         min-height: 0;
-        align-self: stretch;
+        // Height = width × 16/9 — shorter than stretched cover crop, full video visible
+        aspect-ratio: 9 / 16;
+        align-self: start;
         grid-column: 2;
         grid-row: 1 / span 2;
         border-radius: 0;
@@ -329,8 +333,8 @@
             max-height: none;
             display: block;
             border: 0;
-            // cover = fill column, no teal letterbox gaps
-            object-fit: cover;
+            // contain = poori video upar se niche, koi clip nahi
+            object-fit: contain;
             object-position: center center;
             z-index: 1;
             background: transparent;
@@ -355,7 +359,7 @@
                 inset: 0;
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
                 object-position: center center;
             }
         }
@@ -366,7 +370,6 @@
             border-radius: 0;
         }
 
-        // Tablet: full-bleed cover, no top/bottom gaps
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             display: block;
             flex: none;
@@ -387,7 +390,7 @@
                 height: 100%;
                 max-width: none;
                 max-height: none;
-                object-fit: cover;
+                object-fit: contain;
                 object-position: center center;
             }
         }
