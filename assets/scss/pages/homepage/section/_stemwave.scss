@@ -296,41 +296,38 @@
         }
     }
 
-    // Video: full width of its column, natural height = no side strips, no top/bottom gaps
+    // Desktop: video fills right half completely (no empty gray gap)
     &__media {
         position: relative;
         flex: none;
         min-width: 0;
         width: 100%;
         max-width: none;
-        height: auto;
+        height: 100%;
         min-height: 0;
-        // Do NOT stretch to left-column height (that caused black letterbox gaps)
-        align-self: center;
+        align-self: stretch;
         grid-column: 2;
         grid-row: 1 / span 2;
         border-radius: 0;
         overflow: hidden;
-        background-color: transparent;
+        background-color: #000000;
         background-image: none;
         box-sizing: border-box;
         display: block;
-        line-height: 0;
 
         img,
         .stemwave__video,
         .stemwave__video--main {
-            position: static;
-            inset: auto;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: auto;
-            max-width: 100%;
+            height: 100%;
+            max-width: none;
             max-height: none;
             display: block;
             border: 0;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center center;
-            vertical-align: top;
             z-index: 1;
             background: transparent;
         }
@@ -342,31 +339,30 @@
             max-width: 100%;
             min-height: 0;
             height: auto;
+            aspect-ratio: 9 / 16;
             margin: 0 auto;
             border-radius: 0;
-            background-color: transparent;
+            background-color: #000000;
             align-self: stretch;
 
             .stemwave__video,
             .stemwave__video--main {
-                position: static;
-                inset: auto;
+                position: absolute;
+                inset: 0;
                 width: 100%;
-                height: auto;
-                max-width: 100%;
-                max-height: none;
-                object-fit: contain;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
             }
         }
 
         @include tab {
             max-width: 100%;
             min-height: 0;
-            aspect-ratio: auto;
             border-radius: 0;
         }
 
-        // Tablet: full-bleed, natural video height
+        // Tablet: full width, locked portrait frame so video never collapses
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             display: block;
             flex: none;
@@ -374,20 +370,20 @@
             max-width: 100%;
             height: auto;
             min-height: 0;
-            aspect-ratio: auto;
+            aspect-ratio: 9 / 16;
             margin: 0;
             border-radius: 0;
-            background-color: transparent;
+            background-color: #000000;
 
             .stemwave__video,
             .stemwave__video--main {
-                position: static;
-                inset: auto;
+                position: absolute;
+                inset: 0;
                 width: 100%;
-                height: auto;
-                max-width: 100%;
+                height: 100%;
+                max-width: none;
                 max-height: none;
-                object-fit: contain;
+                object-fit: cover;
                 object-position: center center;
             }
         }

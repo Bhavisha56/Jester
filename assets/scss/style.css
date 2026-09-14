@@ -718,33 +718,31 @@ html {
   min-width: 0;
   width: 100%;
   max-width: none;
-  height: auto;
+  height: 100%;
   min-height: 0;
-  align-self: center;
+  align-self: stretch;
   grid-column: 2;
   grid-row: 1/span 2;
   border-radius: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #000000;
   background-image: none;
   box-sizing: border-box;
   display: block;
-  line-height: 0;
 }
 .stemwave__media img,
 .stemwave__media .stemwave__video,
 .stemwave__media .stemwave__video--main {
-  position: static;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  max-width: none;
   max-height: none;
   display: block;
   border: 0;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
-  vertical-align: top;
   z-index: 1;
   background: transparent;
 }
@@ -756,27 +754,26 @@ html {
     max-width: 100%;
     min-height: 0;
     height: auto;
+    aspect-ratio: 9/16;
     margin: 0 auto;
     border-radius: 0;
-    background-color: transparent;
+    background-color: #000000;
     align-self: stretch;
   }
   .stemwave__media .stemwave__video,
   .stemwave__media .stemwave__video--main {
-    position: static;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: none;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
   }
 }
 @media only screen and (max-width: 991px) {
   .stemwave__media {
     max-width: 100%;
     min-height: 0;
-    aspect-ratio: auto;
     border-radius: 0;
   }
 }
@@ -788,20 +785,20 @@ html {
     max-width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 9/16;
     margin: 0;
     border-radius: 0;
-    background-color: transparent;
+    background-color: #000000;
   }
   .stemwave__media .stemwave__video,
   .stemwave__media .stemwave__video--main {
-    position: static;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-    max-width: 100%;
+    height: 100%;
+    max-width: none;
     max-height: none;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
   }
 }
