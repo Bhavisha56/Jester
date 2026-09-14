@@ -296,64 +296,66 @@
         }
     }
 
-    // Desktop: show FULL video frame (no crop) — Vercel was clipping with cover
+    // Video: full width of its column, natural height = no side strips, no top/bottom gaps
     &__media {
         position: relative;
         flex: none;
         min-width: 0;
         width: 100%;
         max-width: none;
-        height: 100%;
+        height: auto;
         min-height: 0;
-        align-self: stretch;
+        // Do NOT stretch to left-column height (that caused black letterbox gaps)
+        align-self: center;
         grid-column: 2;
         grid-row: 1 / span 2;
         border-radius: 0;
         overflow: hidden;
-        background-color: #000000;
+        background-color: transparent;
         background-image: none;
         box-sizing: border-box;
         display: block;
+        line-height: 0;
 
         img,
         .stemwave__video,
         .stemwave__video--main {
-            position: absolute;
-            inset: 0;
+            position: static;
+            inset: auto;
             width: 100%;
-            height: 100%;
-            max-width: none;
+            height: auto;
+            max-width: 100%;
             max-height: none;
             display: block;
             border: 0;
-            // contain = entire video visible (JESTER / stemwave text not cut)
             object-fit: contain;
             object-position: center center;
+            vertical-align: top;
             z-index: 1;
             background: transparent;
         }
 
         @include large {
             display: block;
-            flex: 1 1 auto;
+            flex: none;
             width: 100%;
-            max-width: 420px;
-            min-height: 520px;
+            max-width: 100%;
+            min-height: 0;
             height: auto;
             margin: 0 auto;
-            border-radius: 0px;
-            background-color: #000000;
+            border-radius: 0;
+            background-color: transparent;
+            align-self: stretch;
 
             .stemwave__video,
             .stemwave__video--main {
-                position: absolute;
-                inset: 0;
+                position: static;
+                inset: auto;
                 width: 100%;
-                height: 100%;
-                max-width: none;
+                height: auto;
+                max-width: 100%;
                 max-height: none;
                 object-fit: contain;
-                object-position: center center;
             }
         }
 
@@ -361,10 +363,10 @@
             max-width: 100%;
             min-height: 0;
             aspect-ratio: auto;
-            border-radius: 16px;
+            border-radius: 0;
         }
 
-        // Tablet only: full-bleed width, natural height, no clip
+        // Tablet: full-bleed, natural video height
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             display: block;
             flex: none;
@@ -375,7 +377,7 @@
             aspect-ratio: auto;
             margin: 0;
             border-radius: 0;
-            background-color: #000000;
+            background-color: transparent;
 
             .stemwave__video,
             .stemwave__video--main {
