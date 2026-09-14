@@ -66,6 +66,15 @@
                     preload="auto"
                     aria-label="StemWave therapy"
                 ></video>
+                <button
+                    type="button"
+                    class="stemwave__playpause"
+                    aria-label="Pause video"
+                    data-stemwave-playpause
+                >
+                    <span class="stemwave__playpause-icon stemwave__playpause-icon--pause" aria-hidden="true"></span>
+                    <span class="stemwave__playpause-icon stemwave__playpause-icon--play" aria-hidden="true"></span>
+                </button>
             </div>
             <div class="stemwave__cta">
                 <a href="#formsection" class="stemwave__btn">Try StemWave Today</a>
@@ -270,6 +279,34 @@
             prev.addEventListener('click', function () { goTo(index - 1); });
             next.addEventListener('click', function () { goTo(index + 1); });
             goTo(0);
+        })();
+    </script>
+    <script>
+        (function () {
+            var media = document.querySelector('.stemwave__media');
+            if (!media) return;
+            var video = media.querySelector('.stemwave__video');
+            var btn = media.querySelector('[data-stemwave-playpause]');
+            if (!video || !btn) return;
+
+            function sync() {
+                var paused = video.paused;
+                btn.classList.toggle('is-paused', paused);
+                btn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+            }
+
+            btn.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+                sync();
+            });
+
+            video.addEventListener('play', sync);
+            video.addEventListener('pause', sync);
+            sync();
         })();
     </script>
 
