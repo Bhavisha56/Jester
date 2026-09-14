@@ -24,7 +24,8 @@
 
     &__inner {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        // Narrower left navy box so video gets more width
+        grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
         grid-template-rows: 1fr auto;
         column-gap: 0;
         row-gap: 0;
