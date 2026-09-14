@@ -296,39 +296,37 @@
         }
     }
 
-    // Desktop: video keeps its ratio — full content, no black strips
+    // Desktop: fill right half edge-to-edge (fixes Vercel empty/clipped layout)
     &__media {
         position: relative;
         flex: none;
         min-width: 0;
         width: 100%;
         max-width: none;
+        height: 100%;
+        min-height: 0;
         align-self: stretch;
         grid-column: 2;
         grid-row: 1 / span 2;
         border-radius: 0;
         overflow: hidden;
-        // Same as section bg so empty space isn't a black strip
-        background-color: #D9E6E8;
+        background-color: #000000;
         background-image: none;
         box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
 
         img,
         .stemwave__video,
         .stemwave__video--main {
-            position: static;
-            inset: auto;
-            // Fit inside column by height first, never crop
+            position: absolute;
+            inset: 0;
+            width: 100%;
             height: 100%;
-            width: auto;
-            max-width: 100%;
-            max-height: 100%;
+            max-width: none;
+            max-height: none;
             display: block;
             border: 0;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center center;
             z-index: 1;
             background: transparent;
@@ -340,6 +338,7 @@
             width: 100%;
             max-width: 420px;
             min-height: 520px;
+            height: auto;
             margin: 0 auto;
             border-radius: 0px;
             background-color: #000000;
