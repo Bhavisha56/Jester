@@ -107,7 +107,7 @@
         max-width: 100%;
         height: auto;
         aspect-ratio: 594 / 95;
-        margin: 0 0 32px;
+        margin: 0 0 116px;
         text-decoration: none;
         line-height: 0;
         flex-shrink: 1;
@@ -142,7 +142,7 @@
     &__title {
         font-family: "quincycfRegular";
         font-weight: 400;
-        font-size: 48px;
+        font-size: 72px;
         padding-top: 24px;
         line-height: 1.1;
         letter-spacing: 0;
@@ -174,10 +174,10 @@
     &__desc {
         font-family: "circular";
         font-weight: 450;
-        font-size: 28px;
+        font-size: 40px;
         line-height: 1.35;
         color: #ffffff;
-        margin: 28px 0 0;
+        margin: 117px 0 0;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -211,10 +211,10 @@
     &__offer {
         font-family: "circular";
         font-weight: 500;
-        font-size: 32px;
+        font-size: 46px;
         line-height: 1.3;
         color: #EA7764;
-        margin: 28px 0 0;
+        margin: 91px 0 0;
         max-width: 100%;
         box-sizing: border-box;
 
@@ -266,7 +266,7 @@
         border-radius: 200px;
         font-family: "circular";
         font-weight: 900;
-        font-size: 28px;
+        font-size: 40px;
         line-height: 1;
         color: #28354F;
         text-decoration: none;
