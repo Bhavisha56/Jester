@@ -15,7 +15,11 @@
     }
 
     @include lessTab {
-        padding: 48px 24px;
+        padding: 32px 16px;
+    }
+
+    @include mobile {
+        padding: 24px 16px;
     }
 
     @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -51,6 +55,13 @@
             gap: 32px;
             width: 100%;
             max-width: 100%;
+        }
+
+        @include lessTab {
+            gap: 16px;
+            padding: 0;
+            align-items: center;
+            width: 100%;
         }
     }
 
@@ -192,6 +203,11 @@
 
         @include lessTab {
             font-size: 18px;
+            margin-top: 20px;
+        }
+
+        @include mobile {
+            margin-top: 16px;
         }
 
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -250,6 +266,20 @@
             display: flex;
             justify-content: center;
         }
+
+        @include lessTab {
+            padding: 12px 0 8px;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        @include mobile {
+            padding: 8px 0 4px;
+        }
     }
 
     &__btn {
@@ -294,11 +324,27 @@
         }
 
         @include lessTab {
-            margin-top: 16px;
+            margin-top: 0;
+            margin-left: auto;
+            margin-right: auto;
             width: 100%;
-            max-width: 344px;
-            height: 64px;
+            max-width: 280px;
+            height: auto;
+            min-height: 0;
+            padding: 12px 28px;
             font-size: 18px;
+            // Tighter stacked lines: Try / StemWave / Today
+            line-height: 1.15;
+            letter-spacing: 0;
+            white-space: normal;
+            box-sizing: border-box;
+        }
+
+        @include mobile {
+            max-width: 260px;
+            padding: 10px 24px;
+            font-size: 16px;
+            line-height: 1.1;
         }
     }
 

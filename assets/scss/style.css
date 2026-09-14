@@ -83,17 +83,14 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: right center;
-     object-position: right center;
+  object-fit: cover;
+  object-position: right center;
   display: block;
   z-index: 0;
 }
 @media only screen and (max-width: 767px) {
   .homebanner__bg {
-    -o-object-position: 80% 30%;
-       object-position: 80% 30%;
+    object-position: 80% 30%;
   }
 }
 .homebanner__overlay {
@@ -282,8 +279,7 @@ html {
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .homebanner__bg {
-    -o-object-position: 65% center;
-       object-position: 65% center;
+    object-position: 65% center;
   }
   .homebanner__content {
     width: calc(100% - 220px);
@@ -359,8 +355,7 @@ html {
   width: 100px;
   height: 100px;
   display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: 0 auto;
   flex-shrink: 0;
 }
@@ -430,7 +425,12 @@ html {
 }
 @media only screen and (max-width: 767px) {
   .stemwave {
-    padding: 48px 24px;
+    padding: 32px 16px;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .stemwave {
+    padding: 24px 16px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -443,8 +443,7 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
   grid-template-rows: auto auto;
-  -moz-column-gap: 0;
-       column-gap: 0;
+  column-gap: 0;
   row-gap: 0;
   align-items: stretch;
   width: 100%;
@@ -468,6 +467,14 @@ html {
     gap: 32px;
     width: 100%;
     max-width: 100%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .stemwave__inner {
+    gap: 16px;
+    padding: 0;
+    align-items: center;
+    width: 100%;
   }
 }
 .stemwave__card {
@@ -533,10 +540,8 @@ html {
 .stemwave__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: left center;
-     object-position: left center;
+  object-fit: contain;
+  object-position: left center;
   display: block;
 }
 @media only screen and (max-width: 1200px) {
@@ -614,6 +619,12 @@ html {
 @media only screen and (max-width: 767px) {
   .stemwave__desc {
     font-size: 18px;
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .stemwave__desc {
+    margin-top: 16px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -675,6 +686,22 @@ html {
     justify-content: center;
   }
 }
+@media only screen and (max-width: 767px) {
+  .stemwave__cta {
+    padding: 12px 0 8px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .stemwave__cta {
+    padding: 8px 0 4px;
+  }
+}
 .stemwave__btn {
   display: inline-flex;
   margin-top: 0;
@@ -717,11 +744,27 @@ html {
 }
 @media only screen and (max-width: 767px) {
   .stemwave__btn {
-    margin-top: 16px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    max-width: 344px;
-    height: 64px;
+    max-width: 280px;
+    height: auto;
+    min-height: 0;
+    padding: 12px 28px;
     font-size: 18px;
+    line-height: 1.15;
+    letter-spacing: 0;
+    white-space: normal;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (max-width: 563px) {
+  .stemwave__btn {
+    max-width: 260px;
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 1.1;
   }
 }
 .stemwave__media {
@@ -754,10 +797,8 @@ html {
   max-height: none;
   display: block;
   border: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center center;
-     object-position: center center;
+  object-fit: contain;
+  object-position: center center;
   z-index: 1;
   background: transparent;
 }
@@ -781,10 +822,8 @@ html {
     inset: 0;
     width: 100%;
     height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-    -o-object-position: center center;
-       object-position: center center;
+    object-fit: contain;
+    object-position: center center;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -815,10 +854,8 @@ html {
     height: 100%;
     max-width: none;
     max-height: none;
-    -o-object-fit: contain;
-       object-fit: contain;
-    -o-object-position: center center;
-       object-position: center center;
+    object-fit: contain;
+    object-position: center center;
   }
 }
 
@@ -1127,25 +1164,20 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: left;
-     object-position: left;
+  object-fit: cover;
+  object-position: left;
   display: block;
   z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .stateart__photo {
-    -o-object-position: 18%;
-       object-position: 18%;
+    object-position: 18%;
   }
 }
 @media only screen and (max-width: 767px) {
   .stateart__photo {
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: 18%;
-       object-position: 18%;
+    object-fit: cover;
+    object-position: 18%;
   }
 }
 .stateart__accent {
@@ -1418,8 +1450,7 @@ html {
   width: 363px;
   max-width: 100%;
   height: 395px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 16px;
 }
 @media only screen and (max-width: 1200px) {
@@ -1931,13 +1962,7 @@ html {
   line-height: 1.4;
   color: #28354F;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.formsection__input::-moz-placeholder, .formsection__textarea::-moz-placeholder {
-  color: #9AA3A1;
-  opacity: 1;
+  appearance: none;
 }
 .formsection__input::placeholder, .formsection__textarea::placeholder {
   color: #9AA3A1;
@@ -1990,8 +2015,7 @@ html {
   height: 22px;
   margin: 0;
   padding: 0;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   box-sizing: border-box;
   background-color: #ffffff;
@@ -2072,4 +2096,6 @@ html {
     width: 100%;
     max-width: 50px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
