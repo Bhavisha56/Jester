@@ -1,8 +1,8 @@
 .stemwave {
     width: 100%;
     background-color: #D9E6E8;
-    // Desktop: top/bottom 38px, no side padding
-    padding: 38px 0;
+    // Desktop top/bottom flush with video (no section letterbox around columns)
+    padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 
@@ -32,7 +32,8 @@
         align-items: stretch;
         width: 100%;
         max-width: 100%;
-        min-height: 829px;
+        // Don't force extra height — that created top/bottom video gaps
+        min-height: 0;
         margin: 0 auto;
         box-sizing: border-box;
 
@@ -52,7 +53,7 @@
         }
     }
 
-    // Desktop left box: 50% width, padding 448 / 100
+    // Desktop left box: ~35% width — keep padding modest so column isn't taller than video
     &__card {
         flex: none;
         min-width: 0;
@@ -60,11 +61,12 @@
         max-width: none;
         min-height: 0;
         background-color: #28354F;
-        padding: 448px 100px 0;
+        padding: 80px 48px 0;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: center;
         grid-column: 1;
         grid-row: 1;
 
@@ -99,15 +101,15 @@
 
     &__logo {
         display: block;
-        width: 594px;
+        width: 100%;
         max-width: 100%;
-        height: 95px;
-        margin: 0 0 104px;
+        height: auto;
+        aspect-ratio: 594 / 95;
+        margin: 0 0 32px;
         text-decoration: none;
         line-height: 0;
         flex-shrink: 1;
         min-width: 0;
-        max-width: 100%;
 
         img {
             width: 100%;
@@ -138,8 +140,8 @@
     &__title {
         font-family: "quincycfRegular";
         font-weight: 400;
-        font-size: 72px;
-        padding-top: 116px;
+        font-size: 48px;
+        padding-top: 24px;
         line-height: 1.1;
         letter-spacing: 0;
         color: #ffffff;
@@ -153,8 +155,8 @@
         word-wrap: break-word;
 
         @include extra {
-            max-width: 750px;
-            white-space: nowrap;
+            max-width: 100%;
+            white-space: normal;
         }
 
         @include lessTab {
@@ -170,12 +172,12 @@
     &__desc {
         font-family: "circular";
         font-weight: 450;
-        font-size: 40px;
+        font-size: 28px;
         line-height: 1.35;
         color: #ffffff;
-        margin: 116px 0 0;
+        margin: 28px 0 0;
         width: 100%;
-        max-width: 750px;
+        max-width: 100%;
         box-sizing: border-box;
 
         span {
@@ -207,11 +209,11 @@
     &__offer {
         font-family: "circular";
         font-weight: 500;
-        font-size: 46px;
+        font-size: 32px;
         line-height: 1.3;
         color: #EA7764;
-        margin: 91px 0 0;
-        max-width: 750px;
+        margin: 28px 0 0;
+        max-width: 100%;
         box-sizing: border-box;
 
         @include large {
@@ -236,7 +238,7 @@
         grid-column: 1;
         grid-row: 2;
         background-color: #28354F;
-        padding: 91px 100px 168px;
+        padding: 40px 48px 64px;
         box-sizing: border-box;
 
         @include large {
@@ -297,23 +299,21 @@
         }
     }
 
-    // Desktop: portrait frame locked (no Vercel collapse) + contain (no crop)
+    // Desktop: video fills right column edge-to-edge (no top/bottom gaps)
     &__media {
         position: relative;
         flex: none;
         min-width: 0;
         width: 100%;
         max-width: none;
-        height: auto;
+        height: 100%;
         min-height: 0;
-        aspect-ratio: 9 / 16;
-        // Center in the tall left-column row so we don't stretch/crop the video
-        align-self: center;
+        align-self: stretch;
         grid-column: 2;
         grid-row: 1 / span 2;
         border-radius: 0;
         overflow: hidden;
-        background-color: #D9E6E8;
+        background-color: #000000;
         background-image: none;
         box-sizing: border-box;
         display: block;
@@ -329,7 +329,8 @@
             max-height: none;
             display: block;
             border: 0;
-            object-fit: contain;
+            // cover = fill column, no teal letterbox gaps
+            object-fit: cover;
             object-position: center center;
             z-index: 1;
             background: transparent;
@@ -345,7 +346,7 @@
             aspect-ratio: 9 / 16;
             margin: 0 auto;
             border-radius: 0;
-            background-color: #D9E6E8;
+            background-color: #000000;
             align-self: stretch;
 
             .stemwave__video,
@@ -354,7 +355,7 @@
                 inset: 0;
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                object-fit: cover;
                 object-position: center center;
             }
         }
@@ -365,7 +366,7 @@
             border-radius: 0;
         }
 
-        // Tablet: locked portrait frame (no collapse) + full frame visible
+        // Tablet: full-bleed cover, no top/bottom gaps
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             display: block;
             flex: none;
@@ -376,7 +377,7 @@
             aspect-ratio: 9 / 16;
             margin: 0;
             border-radius: 0;
-            background-color: #D9E6E8;
+            background-color: #000000;
 
             .stemwave__video,
             .stemwave__video--main {
@@ -386,7 +387,7 @@
                 height: 100%;
                 max-width: none;
                 max-height: none;
-                object-fit: contain;
+                object-fit: cover;
                 object-position: center center;
             }
         }
