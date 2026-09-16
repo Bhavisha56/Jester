@@ -124,7 +124,7 @@
         @media only screen and (min-width: 1201px) {
             height: auto;
             align-items: flex-start;
-            padding: 64px 48px 28px 80px;
+            padding: 72px 48px 32px 120px;
             grid-row: 1;
         }
     }
@@ -325,7 +325,7 @@
             grid-column: 1;
             grid-row: 2;
             background-color: #28354F;
-            padding: 24px 48px 64px 80px;
+            padding: 28px 48px 72px 120px;
             display: flex;
             justify-content: flex-start;
             width: auto;
@@ -546,9 +546,9 @@
         @media only screen and (min-width: 1201px) {
             position: relative;
             inset: auto;
-            // Slightly shorter portrait (9:16) — width 360 → height ~640
+            // Shorter portrait: 320 × ~569 (still exact 9:16)
             flex: 0 0 auto;
-            width: 360px;
+            width: 320px;
             max-width: 100%;
             height: auto;
             aspect-ratio: 9 / 16;

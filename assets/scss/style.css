@@ -543,7 +543,7 @@ html {
   .stemwave__card {
     height: auto;
     align-items: flex-start;
-    padding: 64px 48px 28px 80px;
+    padding: 72px 48px 32px 120px;
     grid-row: 1;
   }
 }
@@ -757,7 +757,7 @@ html {
     grid-column: 1;
     grid-row: 2;
     background-color: #28354F;
-    padding: 24px 48px 64px 80px;
+    padding: 28px 48px 72px 120px;
     display: flex;
     justify-content: flex-start;
     width: auto;
@@ -985,7 +985,7 @@ html {
     position: relative;
     inset: auto;
     flex: 0 0 auto;
-    width: 360px;
+    width: 320px;
     max-width: 100%;
     height: auto;
     aspect-ratio: 9/16;
