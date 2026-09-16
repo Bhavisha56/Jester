@@ -1914,12 +1914,7 @@ html {
 }
 @media only screen and (max-width: 563px) {
   .testimonials__arrow {
-    width: 36px;
-    height: 36px;
-  }
-  .testimonials__arrow img {
-    width: 36px;
-    height: 36px;
+    display: none;
   }
 }
 .testimonials__stack {
@@ -2003,6 +1998,11 @@ html {
   width: 100%;
   overflow: hidden;
   border-radius: inherit;
+}
+@media only screen and (max-width: 563px) {
+  .testimonials__viewport {
+    touch-action: pan-y;
+  }
 }
 .testimonials__track {
   display: flex;

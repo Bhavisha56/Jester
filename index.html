@@ -280,10 +280,15 @@
             var root = document.querySelector('[data-testimonials-slider]');
             if (!root) return;
             var track = root.querySelector('[data-testimonials-track]');
+            var viewport = root.querySelector('.testimonials__viewport');
             var cards = Array.prototype.slice.call(track.children);
             var prev = root.querySelector('[data-testimonials-prev]');
             var next = root.querySelector('[data-testimonials-next]');
             var index = 0;
+            var mobileMq = window.matchMedia('(max-width: 563px)');
+            var touchStartX = 0;
+            var touchStartY = 0;
+            var swiping = false;
 
             function goTo(i) {
                 index = (i + cards.length) % cards.length;
@@ -295,6 +300,29 @@
 
             prev.addEventListener('click', function () { goTo(index - 1); });
             next.addEventListener('click', function () { goTo(index + 1); });
+
+            if (viewport) {
+                viewport.addEventListener('touchstart', function (e) {
+                    if (!mobileMq.matches || !e.changedTouches.length) return;
+                    touchStartX = e.changedTouches[0].clientX;
+                    touchStartY = e.changedTouches[0].clientY;
+                    swiping = true;
+                }, { passive: true });
+
+                viewport.addEventListener('touchend', function (e) {
+                    if (!swiping || !mobileMq.matches || !e.changedTouches.length) return;
+                    swiping = false;
+                    var dx = e.changedTouches[0].clientX - touchStartX;
+                    var dy = e.changedTouches[0].clientY - touchStartY;
+                    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+                    goTo(dx < 0 ? index + 1 : index - 1);
+                }, { passive: true });
+
+                viewport.addEventListener('touchcancel', function () {
+                    swiping = false;
+                }, { passive: true });
+            }
+
             goTo(0);
         })();
     </script>

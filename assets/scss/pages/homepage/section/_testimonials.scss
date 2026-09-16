@@ -107,13 +107,7 @@
         }
 
         @include mobile {
-            width: 36px;
-            height: 36px;
-
-            img {
-                width: 36px;
-                height: 36px;
-            }
+            display: none;
         }
     }
 
@@ -202,6 +196,10 @@
         width: 100%;
         overflow: hidden;
         border-radius: inherit;
+
+        @include mobile {
+            touch-action: pan-y;
+        }
     }
 
     &__track {
