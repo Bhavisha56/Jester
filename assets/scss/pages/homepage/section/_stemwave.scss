@@ -546,12 +546,13 @@
         @media only screen and (min-width: 1201px) {
             position: relative;
             inset: auto;
-            // Exact 9:16 always — never cap height alone (that made the frame look broad)
-            width: min(100%, 560px, calc(min(88vh, 920px) * 9 / 16));
+            // Hard 9:16 portrait — keep width narrow so it never looks broad
+            flex: 0 0 auto;
+            width: 420px;
+            max-width: 100%;
             height: auto;
-            max-height: none;
             aspect-ratio: 9 / 16;
-            flex-shrink: 0;
+            max-height: none;
             border: 2px solid rgba(255, 255, 255, 0.85);
             background-color: #000000;
             overflow: hidden;
@@ -568,7 +569,6 @@
         max-height: none;
         display: block;
         border: 0;
-        // cover inside a true 9:16 box — no horizontal stretch
         object-fit: cover;
         object-position: center center;
         z-index: 1;

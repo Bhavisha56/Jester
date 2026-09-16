@@ -984,11 +984,12 @@ html {
   .stemwave__media-frame {
     position: relative;
     inset: auto;
-    width: min(100%, 560px, min(88vh, 920px) * 9 / 16);
+    flex: 0 0 auto;
+    width: 420px;
+    max-width: 100%;
     height: auto;
-    max-height: none;
     aspect-ratio: 9/16;
-    flex-shrink: 0;
+    max-height: none;
     border: 2px solid rgba(255, 255, 255, 0.85);
     background-color: #000000;
     overflow: hidden;
