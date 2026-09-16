@@ -546,10 +546,10 @@
         @media only screen and (min-width: 1201px) {
             position: relative;
             inset: auto;
-            // Width-led so video fills right column (not a tiny centered strip)
-            width: min(100%, 620px);
+            // Exact 9:16 always — never cap height alone (that made the frame look broad)
+            width: min(100%, 560px, calc(min(88vh, 920px) * 9 / 16));
             height: auto;
-            max-height: min(92vh, 980px);
+            max-height: none;
             aspect-ratio: 9 / 16;
             flex-shrink: 0;
             border: 2px solid rgba(255, 255, 255, 0.85);
@@ -568,6 +568,7 @@
         max-height: none;
         display: block;
         border: 0;
+        // cover inside a true 9:16 box — no horizontal stretch
         object-fit: cover;
         object-position: center center;
         z-index: 1;
