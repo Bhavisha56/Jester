@@ -438,8 +438,14 @@ html {
     padding: 0;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave {
+    background-color: #28354F;
+    padding: 0 0 36px;
+  }
+}
 .stemwave__inner {
-  padding: 38px 0px 36px 0px;
+  padding: 38px 0 36px;
   display: grid;
   grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
   grid-template-rows: auto auto;
@@ -477,6 +483,13 @@ html {
     width: 100%;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__inner {
+    padding: 0;
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    grid-template-rows: auto auto;
+  }
+}
 .stemwave__card {
   flex: none;
   min-width: 0;
@@ -507,7 +520,7 @@ html {
 @media only screen and (max-width: 991px) {
   .stemwave__card {
     padding: 48px 40px 80px;
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -523,6 +536,14 @@ html {
     margin: 52px 87px 61px;
     padding: 48px 40px 80px;
     border-radius: 0;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__card {
+    height: auto;
+    align-items: flex-start;
+    padding: 72px 56px 32px 100px;
+    grid-row: 1;
   }
 }
 .stemwave__logo {
@@ -564,6 +585,13 @@ html {
     margin-bottom: 0;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__logo {
+    max-width: 480px;
+    width: 100%;
+    margin-bottom: 56px;
+  }
+}
 .stemwave__title {
   font-family: "quincycfRegular";
   font-weight: 400;
@@ -595,6 +623,12 @@ html {
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .stemwave__title {
     margin-top: 67px;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__title {
+    padding-top: 0;
+    max-width: 620px;
   }
 }
 .stemwave__desc {
@@ -640,6 +674,12 @@ html {
     white-space: normal;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__desc {
+    margin-top: 40px;
+    max-width: 620px;
+  }
+}
 .stemwave__offer {
   font-family: "circular";
   font-weight: 500;
@@ -668,6 +708,12 @@ html {
   .stemwave__offer {
     margin-top: 67px;
     max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__offer {
+    margin-top: 48px;
+    max-width: 620px;
   }
 }
 .stemwave__cta {
@@ -700,6 +746,17 @@ html {
 @media only screen and (max-width: 563px) {
   .stemwave__cta {
     padding: 8px 0 4px;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__cta {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #28354F;
+    padding: 24px 56px 72px 100px;
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
   }
 }
 .stemwave__btn {
@@ -767,6 +824,22 @@ html {
     line-height: 1.1;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__btn {
+    width: auto;
+    max-width: none;
+    min-height: 82px;
+    height: auto;
+    padding: 24px 56px;
+    font-size: 40px;
+    background-color: #D9E6E8;
+    color: #28354F;
+  }
+  .stemwave__btn:hover {
+    background-color: #ffffff;
+    color: #28354F;
+  }
+}
 .stemwave__media {
   position: relative;
   flex: none;
@@ -782,25 +855,8 @@ html {
   border-radius: 0;
   overflow: hidden;
   background-color: #000000;
-  background-image: none;
   box-sizing: border-box;
   display: block;
-}
-.stemwave__media img,
-.stemwave__media .stemwave__video,
-.stemwave__media .stemwave__video--main {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  display: block;
-  border: 0;
-  object-fit: contain;
-  object-position: center center;
-  z-index: 1;
-  background: transparent;
 }
 @media only screen and (max-width: 1200px) {
   .stemwave__media {
@@ -815,15 +871,8 @@ html {
     border-radius: 0;
     background-color: #000000;
     align-self: stretch;
-  }
-  .stemwave__media .stemwave__video,
-  .stemwave__media .stemwave__video--main {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -833,29 +882,140 @@ html {
     border-radius: 0;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
+@media only screen and (max-width: 767px) {
   .stemwave__media {
-    display: block;
-    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: 9/16;
+    aspect-ratio: auto;
     margin: 0;
+    padding: 24px 16px 32px;
     border-radius: 0;
+    background-color: transparent;
+    overflow: visible;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .stemwave__media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    padding: 40px 87px 40px;
+    border-radius: 0;
+    background-color: transparent;
+    overflow: visible;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: auto;
+    align-self: stretch;
+    grid-column: 2;
+    grid-row: 1/span 2;
+    overflow: visible;
+    background-color: #28354F;
+    padding: 48px 40px 48px 24px;
+  }
+}
+.stemwave__media-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  box-sizing: border-box;
+  background-color: #000000;
+  overflow: hidden;
+}
+@media only screen and (max-width: 767px) {
+  .stemwave__media-frame {
+    position: relative;
+    inset: auto;
+    width: min(100%, 340px);
+    height: auto;
+    aspect-ratio: 9/16;
+    max-width: 100%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 32px rgba(40, 53, 79, 0.22);
+    background-color: #000000;
+    overflow: hidden;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .stemwave__media-frame {
+    position: relative;
+    inset: auto;
+    width: min(100%, 420px);
+    height: auto;
+    aspect-ratio: 9/16;
+    max-width: 100%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 32px rgba(40, 53, 79, 0.22);
+    background-color: #000000;
+    overflow: hidden;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__media-frame {
+    position: relative;
+    inset: auto;
+    height: min(90vh, 860px);
+    width: min(100%, min(90vh, 860px) * 9 / 16);
+    max-height: none;
+    aspect-ratio: 9/16;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.85);
     background-color: #000000;
   }
-  .stemwave__media .stemwave__video,
-  .stemwave__media .stemwave__video--main {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    object-fit: contain;
-    object-position: center center;
+}
+.stemwave__video, .stemwave__video--main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: block;
+  border: 0;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+  background: #000000;
+}
+.stemwave__controls {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+.stemwave__controls > * {
+  pointer-events: auto;
+}
+@media only screen and (max-width: 1200px) {
+  .stemwave__controls {
+    overflow: visible;
   }
 }
 .stemwave__playpause {
@@ -894,6 +1054,21 @@ html {
     height: 52px;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__playpause {
+    width: 88px;
+    height: 88px;
+    background-color: rgba(0, 0, 0, 0.35);
+    box-shadow: none;
+  }
+  .stemwave__playpause:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  .stemwave__playpause:focus-visible {
+    outline-color: #ffffff;
+  }
+}
 .stemwave__playpause-icon {
   display: none;
   pointer-events: none;
@@ -913,6 +1088,14 @@ html {
     border-right-width: 4px;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__playpause-icon--pause {
+    width: 20px;
+    height: 24px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+  }
+}
 .stemwave__playpause-icon--play {
   width: 0;
   height: 0;
@@ -929,10 +1112,81 @@ html {
     border-left-width: 14px;
   }
 }
+@media only screen and (min-width: 1201px) {
+  .stemwave__playpause-icon--play {
+    margin-left: 5px;
+    border-top-width: 14px;
+    border-bottom-width: 14px;
+    border-left-width: 24px;
+  }
+}
 .stemwave__playpause:not(.is-paused) .stemwave__playpause-icon--pause {
   display: block;
 }
 .stemwave__playpause.is-paused .stemwave__playpause-icon--play {
+  display: block;
+}
+.stemwave__volume {
+  position: absolute;
+  left: 12px;
+  right: auto;
+  bottom: 12px;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(40, 53, 79, 0.9);
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.stemwave__volume:hover {
+  background-color: #28354F;
+  transform: scale(1.05);
+}
+.stemwave__volume:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+@media only screen and (max-width: 767px) {
+  .stemwave__volume {
+    left: 10px;
+    bottom: 10px;
+    width: 44px;
+    height: 44px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .stemwave__volume {
+    left: 14px;
+    bottom: 14px;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .stemwave__volume {
+    left: 14px;
+    bottom: 14px;
+    width: 52px;
+    height: 52px;
+  }
+}
+.stemwave__volume-icon {
+  display: none;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+.stemwave__volume:not(.is-muted) .stemwave__volume-icon--on {
+  display: block;
+}
+.stemwave__volume.is-muted .stemwave__volume-icon--off {
   display: block;
 }
 
@@ -942,6 +1196,12 @@ html {
   background-color: #D9E6E8;
   box-sizing: border-box;
   overflow: hidden;
+}
+@media only screen and (min-width: 1201px) {
+  .stateart {
+    padding-top: 36px;
+    margin-top: 0;
+  }
 }
 .stateart__inner {
   position: relative;

@@ -1,10 +1,10 @@
 .stemwave {
     width: 100%;
     background-color: #D9E6E8;
-    // Desktop top/bottom flush with video (no section letterbox around columns)
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+
 
     @include large {
         padding: 80px 40px;
@@ -26,12 +26,16 @@
         padding: 0;
     }
 
+    // Desktop-only layout (reference mock)
+    @media only screen and (min-width: 1201px) {
+        background-color: #28354F;
+        padding: 0 0 36px;
+    }
+
     &__inner {
-        padding: 38px 0px 36px 0px;
+        padding: 38px 0 36px;
         display: grid;
-        // Narrower left navy box so video gets more width
         grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
-        // Height comes from the video's 9:16 frame — not a forced tall row
         grid-template-rows: auto auto;
         column-gap: 0;
         row-gap: 0;
@@ -63,9 +67,14 @@
             align-items: center;
             width: 100%;
         }
+
+        @media only screen and (min-width: 1201px) {
+            padding: 0;
+            grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+            grid-template-rows: auto auto;
+        }
     }
 
-    // Left column stretches to match video height (no extra forced height)
     &__card {
         flex: none;
         min-width: 0;
@@ -94,7 +103,7 @@
 
         @include tab {
             padding: 48px 40px 80px;
-            border-radius: 0px;
+            border-radius: 0;
         }
 
         @include lessTab {
@@ -105,10 +114,16 @@
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             width: auto;
             max-width: none;
-            // Outside padding: top 52, bottom 61, left/right 87
             margin: 52px 87px 61px;
             padding: 48px 40px 80px;
             border-radius: 0;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            height: auto;
+            align-items: flex-start;
+            padding: 72px 56px 32px 100px;
+            grid-row: 1;
         }
     }
 
@@ -148,6 +163,12 @@
             margin-top: 64px;
             margin-bottom: 0;
         }
+
+        @media only screen and (min-width: 1201px) {
+            max-width: 480px;
+            width: 100%;
+            margin-bottom: 56px;
+        }
     }
 
     &__title {
@@ -179,9 +200,13 @@
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             margin-top: 67px;
         }
+
+        @media only screen and (min-width: 1201px) {
+            padding-top: 0;
+            max-width: 620px;
+        }
     }
 
-    // Figma: 750 × 87 — exactly 2 lines
     &__desc {
         font-family: "circular";
         font-weight: 450;
@@ -222,6 +247,11 @@
                 white-space: normal;
             }
         }
+
+        @media only screen and (min-width: 1201px) {
+            margin-top: 40px;
+            max-width: 620px;
+        }
     }
 
     &__offer {
@@ -249,6 +279,11 @@
         @media only screen and (min-width: 768px) and (max-width: 1200px) {
             margin-top: 67px;
             max-width: 100%;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            margin-top: 48px;
+            max-width: 620px;
         }
     }
 
@@ -279,6 +314,16 @@
 
         @include mobile {
             padding: 8px 0 4px;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #28354F;
+            padding: 24px 56px 72px 100px;
+            display: flex;
+            justify-content: flex-start;
+            width: auto;
         }
     }
 
@@ -333,7 +378,6 @@
             min-height: 0;
             padding: 12px 28px;
             font-size: 18px;
-            // Tighter stacked lines: Try / StemWave / Today
             line-height: 1.15;
             letter-spacing: 0;
             white-space: normal;
@@ -346,9 +390,24 @@
             font-size: 16px;
             line-height: 1.1;
         }
+
+        @media only screen and (min-width: 1201px) {
+            width: auto;
+            max-width: none;
+            min-height: 82px;
+            height: auto;
+            padding: 24px 56px;
+            font-size: 40px;
+            background-color: #D9E6E8;
+            color: #28354F;
+
+            &:hover {
+                background-color: #ffffff;
+                color: #28354F;
+            }
+        }
     }
 
-    // Desktop: box = exact video ratio (1080x1920) so full frame shows — no top/bottom crop
     &__media {
         position: relative;
         flex: none;
@@ -357,7 +416,6 @@
         max-width: 100%;
         height: auto;
         min-height: 0;
-        // Height = width × 16/9 — shorter than stretched cover crop, full video visible
         aspect-ratio: 9 / 16;
         align-self: start;
         grid-column: 2;
@@ -365,27 +423,8 @@
         border-radius: 0;
         overflow: hidden;
         background-color: #000000;
-        background-image: none;
         box-sizing: border-box;
         display: block;
-
-        img,
-        .stemwave__video,
-        .stemwave__video--main {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            max-width: none;
-            max-height: none;
-            display: block;
-            border: 0;
-            // contain = poori video upar se niche, koi clip nahi
-            object-fit: contain;
-            object-position: center center;
-            z-index: 1;
-            background: transparent;
-        }
 
         @include large {
             display: block;
@@ -399,16 +438,8 @@
             border-radius: 0;
             background-color: #000000;
             align-self: stretch;
-
-            .stemwave__video,
-            .stemwave__video--main {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                object-position: center center;
-            }
+            grid-column: auto;
+            grid-row: auto;
         }
 
         @include tab {
@@ -417,29 +448,139 @@
             border-radius: 0;
         }
 
-        @media only screen and (min-width: 768px) and (max-width: 1200px) {
-            display: block;
-            flex: none;
+        @include lessTab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             max-width: 100%;
             height: auto;
             min-height: 0;
-            aspect-ratio: 9 / 16;
+            aspect-ratio: auto;
             margin: 0;
+            padding: 24px 16px 32px;
             border-radius: 0;
-            background-color: #000000;
+            background-color: transparent;
+            overflow: visible;
+            grid-column: auto;
+            grid-row: auto;
+        }
 
-            .stemwave__video,
-            .stemwave__video--main {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                max-width: none;
-                max-height: none;
-                object-fit: contain;
-                object-position: center center;
-            }
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-height: 0;
+            aspect-ratio: auto;
+            margin: 0;
+            padding: 40px 87px 40px;
+            border-radius: 0;
+            background-color: transparent;
+            overflow: visible;
+            grid-column: auto;
+            grid-row: auto;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: auto;
+            align-self: stretch;
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            overflow: visible;
+            background-color: #28354F;
+            padding: 48px 40px 48px 24px;
+        }
+    }
+
+    &__media-frame {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        box-sizing: border-box;
+        background-color: #000000;
+        overflow: hidden;
+
+        @include lessTab {
+            position: relative;
+            inset: auto;
+            width: min(100%, 340px);
+            height: auto;
+            aspect-ratio: 9 / 16;
+            max-width: 100%;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 32px rgba(40, 53, 79, 0.22);
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            position: relative;
+            inset: auto;
+            width: min(100%, 420px);
+            height: auto;
+            aspect-ratio: 9 / 16;
+            max-width: 100%;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 32px rgba(40, 53, 79, 0.22);
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            position: relative;
+            inset: auto;
+            // Height-first 9:16 — avoids wide box + side black bars from max-height
+            height: min(90vh, 860px);
+            width: min(100%, calc(min(90vh, 860px) * 9 / 16));
+            max-height: none;
+            aspect-ratio: 9 / 16;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            background-color: #000000;
+        }
+    }
+
+    &__video,
+    &__video--main {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        display: block;
+        border: 0;
+        object-fit: cover;
+        object-position: center center;
+        z-index: 1;
+        background: #000000;
+    }
+
+    &__controls {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        overflow: visible;
+
+        > * {
+            pointer-events: auto;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            overflow: visible;
         }
     }
 
@@ -479,6 +620,22 @@
             width: 52px;
             height: 52px;
         }
+
+        @media only screen and (min-width: 1201px) {
+            width: 88px;
+            height: 88px;
+            background-color: rgba(0, 0, 0, 0.35);
+            box-shadow: none;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.5);
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+
+            &:focus-visible {
+                outline-color: #ffffff;
+            }
+        }
     }
 
     &__playpause-icon {
@@ -498,6 +655,13 @@
                 border-left-width: 4px;
                 border-right-width: 4px;
             }
+
+            @media only screen and (min-width: 1201px) {
+                width: 20px;
+                height: 24px;
+                border-left-width: 6px;
+                border-right-width: 6px;
+            }
         }
 
         &--play {
@@ -514,6 +678,13 @@
                 border-bottom-width: 8px;
                 border-left-width: 14px;
             }
+
+            @media only screen and (min-width: 1201px) {
+                margin-left: 5px;
+                border-top-width: 14px;
+                border-bottom-width: 14px;
+                border-left-width: 24px;
+            }
         }
     }
 
@@ -522,6 +693,73 @@
     }
 
     &__playpause.is-paused &__playpause-icon--play {
+        display: block;
+    }
+
+    &__volume {
+        position: absolute;
+        left: 12px;
+        right: auto;
+        bottom: 12px;
+        z-index: 2;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgba(40, 53, 79, 0.9);
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: #28354F;
+            transform: scale(1.05);
+        }
+
+        &:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        @include lessTab {
+            left: 10px;
+            bottom: 10px;
+            width: 44px;
+            height: 44px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {
+            left: 14px;
+            bottom: 14px;
+        }
+
+        @media only screen and (min-width: 1201px) {
+            left: 14px;
+            bottom: 14px;
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    &__volume-icon {
+        display: none;
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+        flex-shrink: 0;
+
+    }
+
+    &__volume:not(.is-muted) &__volume-icon--on {
+        display: block;
+    }
+
+    &__volume.is-muted &__volume-icon--off {
         display: block;
     }
 }

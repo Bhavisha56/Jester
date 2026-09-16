@@ -55,26 +55,43 @@
                 <p class="stemwave__offer">Intro Offer: $49 Trial Session</p>
             </div>
             <div class="stemwave__media">
-                <video
-                    class="stemwave__video stemwave__video--main"
-                    src="assets/video/Web_Final.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    webkit-playsinline
-                    preload="auto"
-                    aria-label="StemWave therapy"
-                ></video>
-                <button
-                    type="button"
-                    class="stemwave__playpause"
-                    aria-label="Pause video"
-                    data-stemwave-playpause
-                >
-                    <span class="stemwave__playpause-icon stemwave__playpause-icon--pause" aria-hidden="true"></span>
-                    <span class="stemwave__playpause-icon stemwave__playpause-icon--play" aria-hidden="true"></span>
-                </button>
+                <div class="stemwave__media-frame">
+                    <video
+                        class="stemwave__video stemwave__video--main"
+                        src="assets/video/Web_Final.mp4"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        webkit-playsinline
+                        preload="auto"
+                        aria-label="StemWave therapy"
+                    ></video>
+                    <div class="stemwave__controls">
+                        <button
+                            type="button"
+                            class="stemwave__playpause"
+                            aria-label="Pause video"
+                            data-stemwave-playpause
+                        >
+                            <span class="stemwave__playpause-icon stemwave__playpause-icon--pause" aria-hidden="true"></span>
+                            <span class="stemwave__playpause-icon stemwave__playpause-icon--play" aria-hidden="true"></span>
+                        </button>
+                        <button
+                            type="button"
+                            class="stemwave__volume"
+                            aria-label="Unmute video"
+                            data-stemwave-volume
+                        >
+                            <svg class="stemwave__volume-icon stemwave__volume-icon--on" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M3 10v4h3.5L12 18.5V5.5L6.5 10H3zm11.5 2c0-1.3-.7-2.4-1.8-3v6c1.1-.6 1.8-1.7 1.8-3zm2.8-5.7v2.1a5.5 5.5 0 0 1 0 7.2v2.1a7.5 7.5 0 0 0 0-11.4z"/>
+                            </svg>
+                            <svg class="stemwave__volume-icon stemwave__volume-icon--off" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M3 10v4h3.5L12 18.5v-4.3L7.2 9.4 3 10zm13.3-1.9l-1.4 1.4 1.6 1.6-1.6 1.6 1.4 1.4 1.6-1.6 1.6 1.6 1.4-1.4-1.6-1.6 1.6-1.6-1.4-1.4-1.6 1.6-1.6-1.6zM12 5.5 9.9 7.6 12 9.7V5.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="stemwave__cta">
                 <a href="#formsection" class="stemwave__btn">Try StemWave Today</a>
@@ -286,27 +303,44 @@
             var media = document.querySelector('.stemwave__media');
             if (!media) return;
             var video = media.querySelector('.stemwave__video');
-            var btn = media.querySelector('[data-stemwave-playpause]');
-            if (!video || !btn) return;
+            var playBtn = media.querySelector('[data-stemwave-playpause]');
+            var volBtn = media.querySelector('[data-stemwave-volume]');
+            if (!video || !playBtn) return;
 
-            function sync() {
+            function syncPlay() {
                 var paused = video.paused;
-                btn.classList.toggle('is-paused', paused);
-                btn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+                playBtn.classList.toggle('is-paused', paused);
+                playBtn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
             }
 
-            btn.addEventListener('click', function () {
+            function syncVolume() {
+                if (!volBtn) return;
+                var muted = video.muted;
+                volBtn.classList.toggle('is-muted', muted);
+                volBtn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
+            }
+
+            playBtn.addEventListener('click', function () {
                 if (video.paused) {
                     video.play();
                 } else {
                     video.pause();
                 }
-                sync();
+                syncPlay();
             });
 
-            video.addEventListener('play', sync);
-            video.addEventListener('pause', sync);
-            sync();
+            if (volBtn) {
+                volBtn.addEventListener('click', function () {
+                    video.muted = !video.muted;
+                    syncVolume();
+                });
+            }
+
+            video.addEventListener('play', syncPlay);
+            video.addEventListener('pause', syncPlay);
+            video.addEventListener('volumechange', syncVolume);
+            syncPlay();
+            syncVolume();
         })();
     </script>
 
