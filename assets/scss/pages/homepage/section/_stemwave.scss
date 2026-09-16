@@ -70,8 +70,8 @@
 
         @media only screen and (min-width: 1201px) {
             padding: 0;
-            // More room for video — left was dominating on Vercel/desktop
-            grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+            // More room for left copy; video stays portrait on the right
+            grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
             grid-template-rows: auto auto;
             column-gap: 0;
         }
@@ -124,7 +124,7 @@
         @media only screen and (min-width: 1201px) {
             height: auto;
             align-items: flex-start;
-            padding: 56px 40px 24px 64px;
+            padding: 64px 48px 28px 80px;
             grid-row: 1;
         }
     }
@@ -167,7 +167,7 @@
         }
 
         @media only screen and (min-width: 1201px) {
-            max-width: 380px;
+            max-width: 440px;
             width: 100%;
             margin-bottom: 40px;
         }
@@ -205,7 +205,7 @@
 
         @media only screen and (min-width: 1201px) {
             padding-top: 0;
-            font-size: 56px;
+            font-size: 60px;
             max-width: 100%;
         }
     }
@@ -325,7 +325,7 @@
             grid-column: 1;
             grid-row: 2;
             background-color: #28354F;
-            padding: 24px 40px 56px 64px;
+            padding: 24px 48px 64px 80px;
             display: flex;
             justify-content: flex-start;
             width: auto;
@@ -546,9 +546,9 @@
         @media only screen and (min-width: 1201px) {
             position: relative;
             inset: auto;
-            // Hard 9:16 portrait — keep width narrow so it never looks broad
+            // Slightly shorter portrait (9:16) — width 360 → height ~640
             flex: 0 0 auto;
-            width: 420px;
+            width: 360px;
             max-width: 100%;
             height: auto;
             aspect-ratio: 9 / 16;
