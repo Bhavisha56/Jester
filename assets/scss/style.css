@@ -486,8 +486,9 @@ html {
 @media only screen and (min-width: 1201px) {
   .stemwave__inner {
     padding: 0;
-    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
     grid-template-rows: auto auto;
+    column-gap: 0;
   }
 }
 .stemwave__card {
@@ -542,7 +543,7 @@ html {
   .stemwave__card {
     height: auto;
     align-items: flex-start;
-    padding: 72px 56px 32px 100px;
+    padding: 56px 40px 24px 64px;
     grid-row: 1;
   }
 }
@@ -587,9 +588,9 @@ html {
 }
 @media only screen and (min-width: 1201px) {
   .stemwave__logo {
-    max-width: 480px;
+    max-width: 380px;
     width: 100%;
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 }
 .stemwave__title {
@@ -628,7 +629,8 @@ html {
 @media only screen and (min-width: 1201px) {
   .stemwave__title {
     padding-top: 0;
-    max-width: 620px;
+    font-size: 56px;
+    max-width: 100%;
   }
 }
 .stemwave__desc {
@@ -676,8 +678,9 @@ html {
 }
 @media only screen and (min-width: 1201px) {
   .stemwave__desc {
-    margin-top: 40px;
-    max-width: 620px;
+    margin-top: 28px;
+    font-size: 28px;
+    max-width: 100%;
   }
 }
 .stemwave__offer {
@@ -712,8 +715,9 @@ html {
 }
 @media only screen and (min-width: 1201px) {
   .stemwave__offer {
-    margin-top: 48px;
-    max-width: 620px;
+    margin-top: 32px;
+    font-size: 36px;
+    max-width: 100%;
   }
 }
 .stemwave__cta {
@@ -753,7 +757,7 @@ html {
     grid-column: 1;
     grid-row: 2;
     background-color: #28354F;
-    padding: 24px 56px 72px 100px;
+    padding: 24px 40px 56px 64px;
     display: flex;
     justify-content: flex-start;
     width: auto;
@@ -827,11 +831,11 @@ html {
 @media only screen and (min-width: 1201px) {
   .stemwave__btn {
     width: auto;
-    max-width: none;
-    min-height: 82px;
+    max-width: 100%;
+    min-height: 72px;
     height: auto;
-    padding: 24px 56px;
-    font-size: 40px;
+    padding: 20px 40px;
+    font-size: 32px;
     background-color: #D9E6E8;
     color: #28354F;
   }
@@ -933,7 +937,7 @@ html {
     grid-row: 1/span 2;
     overflow: visible;
     background-color: #28354F;
-    padding: 48px 40px 48px 24px;
+    padding: 40px 56px 40px 32px;
   }
 }
 .stemwave__media-frame {
@@ -980,13 +984,14 @@ html {
   .stemwave__media-frame {
     position: relative;
     inset: auto;
-    height: min(90vh, 860px);
-    width: min(100%, min(90vh, 860px) * 9 / 16);
-    max-height: none;
+    width: min(100%, 620px);
+    height: auto;
+    max-height: min(92vh, 980px);
     aspect-ratio: 9/16;
     flex-shrink: 0;
     border: 2px solid rgba(255, 255, 255, 0.85);
     background-color: #000000;
+    overflow: hidden;
   }
 }
 .stemwave__video, .stemwave__video--main {
